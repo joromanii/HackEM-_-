@@ -45,7 +45,7 @@ After removing one of the duplicated Fwd Header Length columns, the paper analyz
 | 55 | Fwd Header Length |
 | 24 | Fwd IAT Total |
 
-**Verification gate:** Confirm which of the two Fwd Header Length columns is removed in the downloaded files, then verify every ID/name pair against the paper's feature tables and the CSV header. Select by verified column name, not raw numeric position.
+**Verification gate:** The downloaded files contain two columns named Fwd Header Length, and the paper says one is removed without identifying which duplicate. Compare their values; if they are identical, drop one and record the rule. Verify every ID/name pair against the paper's feature tables and CSV header, and select by column name rather than raw position.
 
 ## Method extraction and unresolved protocol
 
@@ -67,7 +67,7 @@ Do not infer unspecified settings from the paper's reported score. If a setting 
 
 ## Dataset and local progress
 
-The team reports having CICIDS2017 MachineLearningCSV extracted locally at `~/Downloads/MachineLearningCVE/`. A prior local label-count run was reported as 2,830,743 rows, 15 labels, and 79 CSV columns (including label), with approximately 80.3% benign and 19.7% attack traffic. The summary file was reported at `~/ids-capstone/results/dataset_label_counts.csv`. These facts are user-reported prior work; the repository has not independently verified the files or rerun those counts.
+A header-only inspection on 2026-10-29 confirmed eight CSV files in `~/Downloads/MachineLearningCVE/`, each with 79 columns (78 predictors plus `Label`) and two columns named ` Fwd Header Length`. This confirms the duplicated-header issue but does not establish whether the duplicate columns have identical values. A previous local label-count run was reported as 2,830,743 rows, 15 labels, approximately 80.3% benign and 19.7% attack traffic; those full-data counts have not been independently rerun. The summary file was reported at `~/ids-capstone/results/dataset_label_counts.csv`.
 
 Official dataset page: [CICIDS2017, Canadian Institute for Cybersecurity](https://www.unb.ca/cic/datasets/ids-2017.html).
 
