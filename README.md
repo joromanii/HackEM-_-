@@ -6,9 +6,9 @@ The team has agreed to use the following working paper and reproduction target. 
 
 **Paper:** Kurniabudi et al., “CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection,” *IEEE Access*, vol. 8 (2020), pp. 132911–132921. [DOI: 10.1109/ACCESS.2020.3009843](https://doi.org/10.1109/ACCESS.2020.3009843).
 
-**Target:** Table 9, Random Forest with 22 Information Gain-selected features: reported accuracy 99.86%, recall 0.999, false-positive rate 0.003, and precision NaN. Treat NaN as a reported defect to investigate, not a valid reproduction metric. The paper's evaluation description includes both a 70/30 train/test split and 10-fold cross-validation; resolve and document how we interpret this before comparing numbers.
+**Target:** Table 9, Random Forest with the 22-feature Information Gain subset (>=0.4): reported accuracy 99.86%, recall 0.999, false-positive rate 0.003, and precision NaN. The paper says it uses 20% of MachineLearningCSV, removes one duplicated Fwd Header Length feature, relabels attack classes, and describes both a 70/30 split and 10-fold evaluation. It does not clearly explain how those two evaluation descriptions compose. The paper attributes NaN values to rare classes missing from folds and reports that RF does not detect Infiltration for this feature subset. These are paper-reported values, not our results. See the [paper-method specification](docs/PAPER_METHOD.md) for the 22-feature list and open protocol questions.
 
-Start with [open Issues](https://github.com/joromanii/HackEM-_-/issues), the [IDS_Capstone project board](https://github.com/users/joromanii/projects/1), the [report](docs/REPORT.md), and [paper-selection issue #1](https://github.com/joromanii/HackEM-_-/issues/1).
+Start with [open Issues](https://github.com/joromanii/HackEM-_-/issues), the [IDS_Capstone project board](https://github.com/users/joromanii/projects/1), the [report](docs/REPORT.md), the [paper-method specification](docs/PAPER_METHOD.md), and [paper-selection issue #1](https://github.com/joromanii/HackEM-_-/issues/1).
 
 ## Dataset starting point
 
