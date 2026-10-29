@@ -2,9 +2,13 @@
 
 ## Project status
 
-The project is being organized around the reported CIC-IDS2017 dataset. The paper and exact result to reproduce have **not** been selected. No paper-specific implementation or reproduction result is claimed yet.
+The team has agreed to use the following working paper and reproduction target. The repository owner reports teammate agreement; record each teammate’s explicit vote in [issue #2](https://github.com/joromanii/HackEM-_-/issues/2) before marking the rubric's unanimous-commit condition complete. The implementation and reproduction measurements are not complete.
 
-Start with [open Issues](https://github.com/joromanii/HackEM-_-/issues), the [IDS_Capstone project board](https://github.com/users/joromanii/projects/1), and the [report template](docs/REPORT.md).
+**Paper:** Kurniabudi et al., “CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection,” *IEEE Access*, vol. 8 (2020), pp. 132911–132921. [DOI: 10.1109/ACCESS.2020.3009843](https://doi.org/10.1109/ACCESS.2020.3009843).
+
+**Target:** Table 9, Random Forest with 22 Information Gain-selected features: reported accuracy 99.86%, recall 0.999, false-positive rate 0.003, and precision NaN. Treat NaN as a reported defect to investigate, not a valid reproduction metric. The paper's evaluation description includes both a 70/30 train/test split and 10-fold cross-validation; resolve and document how we interpret this before comparing numbers.
+
+Start with [open Issues](https://github.com/joromanii/HackEM-_-/issues), the [IDS_Capstone project board](https://github.com/users/joromanii/projects/1), the [report](docs/REPORT.md), and [paper-selection issue #1](https://github.com/joromanii/HackEM-_-/issues/1).
 
 ## Dataset starting point
 
@@ -12,18 +16,18 @@ The project owner reports CIC-IDS2017 MachineLearningCSV locally available and a
 
 ## Workflow
 
-1. Select and verify a paper, exact table/figure/row claim, dataset match, feasibility, blockers, and fallback.
-2. Record team logistics and each member’s explicit vote before treating the paper as approved.
-3. Audit the data, decide preprocessing and a leakage-aware split, and build a clearly labeled baseline.
+1. Verify the exact paper claim, citation, data match, feasibility, blockers, and fallback.
+2. Record the reported team agreement and each member’s explicit vote in issue #2.
+3. Audit the data, resolve label mapping/preprocessing, and document the paper's ambiguous split/CV protocol.
 4. Pin environment versions, seeds, configuration, and clean-checkout commands.
-5. Implement the approved paper method, log assumptions and deviations, then compare the target metric quantitatively.
+5. Implement the approved paper method, log assumptions and deviations, then compare the target metrics quantitatively.
 6. Explain differences using evidence, finish the report, and perform a clean-checkout review.
 
-Five phase milestones are organized with dates intentionally unset until the course calendar is confirmed. No team assignments or votes are inferred. Use issues to record accepted owners, blockers, decisions, and evidence. Move project cards through Backlog, Ready, In progress, In review, and Done as work changes. Plan iterations when actual semester dates are known.
+Five phase milestones are organized with dates intentionally unset until the course calendar is confirmed. No individual assignments or contributions are inferred. Use issues to record accepted owners, blockers, decisions, and evidence. Move project cards through Backlog, Ready, In progress, In review, and Done as work changes. Plan iterations when actual semester dates are known.
 
 ## Results and evidence
 
-No paper result or reproduction result is available yet. Add paper and reproduced values, their difference, exact source row, settings, and evidence links to [docs/REPORT.md](docs/REPORT.md). Separate verified explanations from hypotheses.
+The published target values are listed above as paper-reported values, not as results from this project. No implementation or reproduction result is available yet. Add reproduced values, their difference, exact source row, settings, and evidence links to [docs/REPORT.md](docs/REPORT.md). Separate verified explanations from hypotheses.
 
 ## Individual Contribution Summary Table
 
@@ -32,5 +36,4 @@ Fill from completed issues, pull requests, commits, and agreed point allocation.
 | Member | GitHub username | Story points completed | Contribution % | Issue/PR evidence |
 |---|---|---:|---:|---|
 | To be completed | To be completed | — | — | — |
-| **Team total** |  | **—** | **100%** |  |# HackEM-_-
-IDS 
+| **Team total** |  | **—** | **100%** |  |
