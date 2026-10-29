@@ -86,6 +86,5 @@ Fill the reproduction columns only from saved, reproducible runs.
 
 - [IEEE Xplore paper record](https://ieeexplore.ieee.org/document/9142219/)
 - [Full paper PDF, University of Sriwijaya repository](https://repository.unsri.ac.id/34942/1/CICIDS-2017%20Dataset%20Feature%20Analysis%20With.pdf)
-- [Full paper PDF (University of Sriwijaya repository)](https://repository.unsri.ac.id/34942/1/CICIDS-2017%20Dataset%20Feature%20Analysis%20With.pdf)
 - [Official CICIDS2017 dataset page](https://www.unb.ca/cic/datasets/ids-2017.html)
 - Related feature-index cross-check: [Important Features of CICIDS-2017 Dataset for Anomaly Detection (2021 PDF)](https://repository.unsri.ac.id/59455/1/Important_Features_of_CICIDS_2017_Dataset_For_Anom.pdf). This is a secondary cross-check; the original paper remains authoritative.
