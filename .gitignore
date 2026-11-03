@@ -1,0 +1,21 @@
+# Data: never commit raw or processed data (see CLAUDE.md)
+data/
+*.csv
+*.parquet
+*.pkl
+*.joblib
+
+# Allow small result tables under results/ (e.g. inventory counts)
+!results/**/*.csv
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
