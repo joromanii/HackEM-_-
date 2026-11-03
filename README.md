@@ -12,7 +12,7 @@ Start with [open Issues](https://github.com/joromanii/HackEM-_-/issues), the [ID
 
 ## Dataset starting point
 
-The project owner reports CIC-IDS2017 MachineLearningCSV locally available and an initial count of 2,830,743 records, 15 labels, and 79 columns, with about 80.3% benign and 19.7% attack traffic. These are preliminary reported values; recheck them from the source files and preserve the counting script and inventory as evidence. Do not commit raw dataset files, virtual environments, credentials, or machine-specific paths.
+The project owner reports CIC-IDS2017 MachineLearningCSV locally available and an initial count of 2,830,743 records, 15 labels, and 79 columns, with about 80.3% benign and 19.7% attack traffic. The Issue #4 audit reran these counts from the source files and they match: measured (`results/inventory/2026-11-02_audit/`). See [docs/DATA_AUDIT.md](docs/DATA_AUDIT.md) for the full inventory, including duplicate rows and NaN/Inf values. Do not commit raw dataset files, virtual environments, credentials, or machine-specific paths.
 
 ## Workflow
 

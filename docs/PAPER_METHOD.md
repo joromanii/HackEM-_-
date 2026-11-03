@@ -67,7 +67,7 @@ Do not infer unspecified settings from the paper's reported score. If a setting 
 
 ## Dataset and local progress
 
-A header-only inspection on 2026-10-29 confirmed eight CSV files in `~/Downloads/MachineLearningCVE/`, each with 79 columns (78 predictors plus `Label`) and two columns named ` Fwd Header Length`. This confirms the duplicated-header issue but does not establish whether the duplicate columns have identical values. A previous local label-count run was reported as 2,830,743 rows, 15 labels, approximately 80.3% benign and 19.7% attack traffic; those full-data counts have not been independently rerun. The summary file was reported at `~/ids-capstone/results/dataset_label_counts.csv`.
+A header-only inspection on 2026-10-29 confirmed eight CSV files in `~/Downloads/MachineLearningCVE/`, each with 79 columns (78 predictors plus `Label`) and two columns named ` Fwd Header Length`. This confirms the duplicated-header issue. The Issue #4 audit later found the two columns identical in every row of all 8 files: measured (`results/inventory/2026-11-02_audit/fwd_header_check.csv`). A previous local label-count run was reported as 2,830,743 rows, 15 labels, approximately 80.3% benign and 19.7% attack traffic; the Issue #4 audit reran the full-data counts and they match exactly: measured (`results/inventory/2026-11-02_audit/label_count_comparison.csv`). See `docs/DATA_AUDIT.md`. The summary file was reported at `~/ids-capstone/results/dataset_label_counts.csv`.
 
 Official dataset page: [CICIDS2017, Canadian Institute for Cybersecurity](https://www.unb.ca/cic/datasets/ids-2017.html).
 

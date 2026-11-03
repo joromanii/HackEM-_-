@@ -12,10 +12,11 @@ We implement the paper's preprocessing and Information Gain feature selection as
 | Paper method spec: `docs/PAPER_METHOD.md` | Written, on branch `docs/select-cicids-paper` (PR #14, open) |
 | Paper numbers: 99.86% acc, 0.999 recall, 0.003 FPR, precision NaN | **Paper-reported only. Not reproduced.** |
 | Dataset CSVs at `~/Downloads/MachineLearningCVE/` | Present. Header check: 8 files, 79 columns, two `Fwd Header Length` columns |
-| Label counts `~/ids-capstone/results/dataset_label_counts.csv` | Exists: 2,830,743 rows, 15 labels. **Not independently rerun.** |
-| Label names | Web-attack labels show an encoding issue (`Web Attack � …`). To investigate. |
+| Label counts `~/ids-capstone/results/dataset_label_counts.csv` | Exists: 2,830,743 rows, 15 labels. Rerun and matched exactly by the Issue #4 audit: measured (`results/inventory/2026-11-02_audit/label_count_comparison.csv`). |
+| Label names | The three Web Attack labels contain U+FFFD (bytes `ef bf bd`) in the raw files: measured (`results/inventory/2026-11-02_audit/label_encoding.csv`). See `docs/DATA_AUDIT.md`. |
 | Local env `~/ids-capstone/.venv` | Python 3.9.6 (system), pandas 2.2.3, scikit-learn 1.6.1, numpy 2.0.2. Not pinned in the repo. |
-| Code in repo, split spec, baseline, model, evaluation | Not started |
+| Data audit (#4): `scripts/audit_inventory.py`, `docs/DATA_AUDIT.md` | Done on branch `m2/setup` (not yet in a PR) |
+| Split spec, baseline, model, evaluation | Not started |
 
 ## Next milestone: M2 — Data audit and reproducible baseline (Issues #4–#7)
 Done means:
@@ -35,7 +36,7 @@ Done means:
 - How did the paper draw its 20% sample? (Unspecified so far.)
 - Does 10-fold CV run inside the 70% train split, or on the whole 20% sample?
 - Weka 3.9 Random Forest settings, and how metrics were averaged (multiclass).
-- Which duplicate `Fwd Header Length` column was dropped? Are the two identical?
-- Do we remove duplicate rows? (Not stated in the paper; affects accuracy.)
+- Which duplicate `Fwd Header Length` column was dropped? The two are identical in every row: measured (`results/inventory/2026-11-02_audit/fwd_header_check.csv`), so the choice doesn't change values, but the rule still needs writing down.
+- Do we remove duplicate rows? (Not stated in the paper; affects accuracy.) 308,381 rows (10.89%) are extra copies of an earlier identical row: measured (`results/inventory/2026-11-02_audit/duplicates.csv`).
 - Machine RAM: unknown. Load data in chunks or by column until confirmed.
 - Team roster and GitHub usernames: TODO. Issue assignments: TODO (team decision).

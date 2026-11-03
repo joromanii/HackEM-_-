@@ -28,7 +28,7 @@ Do not present paper-reported values as reproduced results. Table 9 precision of
 
 ## 3. Dataset and access evidence
 
-The owner reports CIC-IDS2017 MachineLearningCSV, 2,830,743 records, 15 labels, and 79 columns, about 80.3% benign and 19.7% attack. Preliminary until re-counted from source files. Record source/version, retrieval date, inventory, headers, row counts, label normalization, access instructions, and redistribution constraints. Keep raw data out of Git unless permitted.
+The owner reports CIC-IDS2017 MachineLearningCSV, 2,830,743 records, 15 labels, and 79 columns, about 80.3% benign and 19.7% attack. The Issue #4 audit re-counted these from the source files and they match: measured (`results/inventory/2026-11-02_audit/`); see [DATA_AUDIT.md](DATA_AUDIT.md). Record source/version, retrieval date, inventory, headers, row counts, label normalization, access instructions, and redistribution constraints. Keep raw data out of Git unless permitted.
 
 ## 4. Methodology and reproducible settings
 
@@ -74,7 +74,7 @@ Add verified commands once the pipeline exists. Do not present a baseline as pap
 
 | Evidence | Path/link | What it verifies |
 |---|---|---|
-| Dataset inventory/counts | To be added | File access and class distribution |
+| Dataset inventory/counts | [`results/inventory/2026-11-02_audit/`](../results/inventory/2026-11-02_audit/), [DATA_AUDIT.md](DATA_AUDIT.md) | File access and class distribution |
 | Config/environment | To be added | Reproducible settings |
 | Run logs/metrics | To be added | Execution and measurements |
 | Figures/tables | To be added | Results and comparison |

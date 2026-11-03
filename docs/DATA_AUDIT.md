@@ -42,7 +42,7 @@ SHA-256 checksums for each file are in `files.csv`, so teammates can confirm the
 
 15 labels; BENIGN is 2,273,097 rows (80.30%). Full per-file and total counts: [`label_counts.csv`](../results/inventory/2026-11-02_audit/label_counts.csv). The smallest classes are Infiltration (36), Web Attack Sql Injection (21) and Heartbleed (11).
 
-**Encoding:** `Web Attack � Brute Force`, `Web Attack � XSS` and `Web Attack � Sql Injection` contain the Unicode replacement character U+FFFD, stored as UTF-8 bytes `ef bf bd` in the raw CSV. The original character was lost before we downloaded the files; it is not a reading error. Any relabeling (paper Table 3) must match these exact strings or rename them deliberately and log it in `docs/DEVIATIONS.md`.
+**Encoding:** `Web Attack � Brute Force`, `Web Attack � XSS` and `Web Attack � Sql Injection` contain the Unicode replacement character U+FFFD, stored as UTF-8 bytes `ef bf bd` in the raw CSV. So the problem is in the file itself, not in how it is read. `unverified`: the original character (likely a dash) was probably lost when the CSVs were created; the audit cannot show when or how. Any relabeling (paper Table 3) must match these exact strings or rename them deliberately and log it in `docs/DEVIATIONS.md` (to be created in Issue #5).
 
 ## Columns
 
@@ -79,7 +79,7 @@ Exact duplicates compare all 79 columns, including `Label`. "Extra copies" count
 | Heartbleed, Infiltration, Web Attack � Sql Injection, Web Attack � XSS | — | 0 |
 | **All** | **2,830,743** | **308,381** |
 
-PortScan (42.9%) and DoS Hulk (25.2%) have the highest share of repeats. If duplicates are kept, identical rows can land in both training and test sets, which can inflate accuracy. Whether to remove them is not stated in the paper and is an open question in `BRIEF.md`.
+The highest shares of repeats are SSH-Patator (45.4%), PortScan (42.9%), FTP-Patator (25.3%) and DoS Hulk (25.2%). If duplicates are kept, identical rows can land in both training and test sets, which can inflate accuracy. Whether to remove them is not stated in the paper and is an open question in `BRIEF.md`.
 
 **Same features, different label:** 698 groups of rows have identical features but more than one label: BENIGN/PortScan 564, BENIGN/DoS Hulk 130, BENIGN/DDoS 3, BENIGN/DoS slowloris 1. Rows involved by label: DoS Hulk 5,224, PortScan 1,053, BENIGN 736, DDoS 6, DoS slowloris 1 ([`conflicting_labels_by_label.csv`](../results/inventory/2026-11-02_audit/conflicting_labels_by_label.csv)). No model can separate these rows.
 
