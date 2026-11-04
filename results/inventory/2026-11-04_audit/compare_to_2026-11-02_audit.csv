@@ -1,0 +1,15 @@
+# Added by hand after the run (not written by audit_inventory.py; not listed in run_meta.json).
+# Byte comparison of each CSV in results/inventory/2026-11-04_audit against results/inventory/2026-11-02_audit. run_meta.json is excluded: it differs by design.
+# Produced from the repo root with:
+#   for f in results/inventory/2026-11-02_audit/*.csv; do n=$(basename "$f"); cmp -s "$f" results/inventory/2026-11-04_audit/"$n" && echo "identical,$n" || echo "DIFFERS,$n"; done
+# results/inventory/2026-11-02_audit ran on Python 3.9.6; results/inventory/2026-11-04_audit on Python 3.11.18. pandas 2.2.3, numpy 2.0.2, scikit-learn 1.6.1 in both (run_meta.json).
+identical,columns.csv
+identical,conflicting_labels.csv
+identical,conflicting_labels_by_label.csv
+identical,duplicates.csv
+identical,files.csv
+identical,fwd_header_check.csv
+identical,inf_nan.csv
+identical,label_count_comparison.csv
+identical,label_counts.csv
+identical,label_encoding.csv

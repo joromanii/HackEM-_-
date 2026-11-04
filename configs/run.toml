@@ -1,0 +1,8 @@
+# Project run configuration. One seed for the whole project.
+# Paths may start with "~". Relative paths are relative to the repo root.
+
+seed = 42
+
+[paths]
+data_dir = "~/Downloads/MachineLearningCVE"   # raw CIC-IDS2017 MachineLearningCSV, read-only
+results_dir = "results"                        # run folders are created under here

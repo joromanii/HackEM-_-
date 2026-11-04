@@ -1,0 +1,39 @@
+{
+  "script": "scripts/audit_inventory.py",
+  "script_sha256": "2d7a46b8ef9ac7eda12536ea60d040c488400d8c20a73ad4c23aa42234f68671",
+  "args": {
+    "data_dir": "/Users/jomii/Downloads/MachineLearningCVE",
+    "out_dir": "/Users/jomii/Documents/IDS_capstone_project/HackEM-_-/results/inventory/2026-11-04_audit",
+    "nrows_per_file": null,
+    "old_counts": "/Users/jomii/ids-capstone/results/dataset_label_counts.csv",
+    "chunk_rows": 200000
+  },
+  "config_file": "/Users/jomii/Documents/IDS_capstone_project/HackEM-_-/configs/run.toml",
+  "config_sha256": "2feeabf5c3fd140c1a0419af4b23a732cfdd67c2019b33f981562853f24e72af",
+  "config": {
+    "seed": 42,
+    "paths": {
+      "data_dir": "~/Downloads/MachineLearningCVE",
+      "results_dir": "results"
+    }
+  },
+  "started": "2026-11-04T15:29:49-06:00",
+  "runtime_seconds": 16.8,
+  "python": "3.11.18 (main, Oct 25 2026, 19:41:29) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "packages": {
+    "pandas": "2.2.3",
+    "numpy": "2.0.2",
+    "scikit-learn": "1.6.1"
+  },
+  "git": {
+    "commit": "33c47b581c5a2e73f60b1a00594afcd2ce96cb0d",
+    "branch": "m2/env",
+    "dirty_files": "M scripts/audit_inventory.py\n?? configs/\n?? requirements-lock.txt\n?? requirements.txt\n?? results/inventory/2026-11-04_audit/"
+  },
+  "randomness": "none (deterministic; no seed needed)",
+  "duplicate_method": "pandas.util.hash_pandas_object 64-bit row hashes; features cast to float64, label as string",
+  "total_rows": 2830743,
+  "files": 8,
+  "label_counts_differ_from_old": false
+}

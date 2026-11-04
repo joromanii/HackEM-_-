@@ -5,17 +5,17 @@ A capstone project that reproduces and evaluates one published intrusion-detecti
 Target: Kurniabudi et al., "CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection," IEEE Access 2020 (DOI 10.1109/ACCESS.2020.3009843), **Table 9, Random Forest, 22 features**.
 We implement the paper's preprocessing and Information Gain feature selection as closely as the paper allows, measure our own results with fixed settings, and explain any gap. Ambiguities become documented deviations, not silent choices.
 
-## Current state (as of 2026-11-02)
+## Current state (as of 2026-11-04)
 | Item | Status |
 |---|---|
 | Paper selected; owner's vote recorded in Issue #2 | Done. Teammate votes **pending**. |
-| Paper method spec: `docs/PAPER_METHOD.md` | Written, on branch `docs/select-cicids-paper` (PR #14, open) |
+| Paper method spec: `docs/PAPER_METHOD.md` | Written; merged in PR #14 |
 | Paper numbers: 99.86% acc, 0.999 recall, 0.003 FPR, precision NaN | **Paper-reported only. Not reproduced.** |
 | Dataset CSVs at `~/Downloads/MachineLearningCVE/` | Present. Header check: 8 files, 79 columns, two `Fwd Header Length` columns |
 | Label counts `~/ids-capstone/results/dataset_label_counts.csv` | Exists: 2,830,743 rows, 15 labels. Rerun and matched exactly by the Issue #4 audit: measured (`results/inventory/2026-11-02_audit/label_count_comparison.csv`). |
 | Label names | The three Web Attack labels contain U+FFFD (bytes `ef bf bd`) in the raw files: measured (`results/inventory/2026-11-02_audit/label_encoding.csv`). See `docs/DATA_AUDIT.md`. |
-| Local env `~/ids-capstone/.venv` | Python 3.9.6 (system), pandas 2.2.3, scikit-learn 1.6.1, numpy 2.0.2. Not pinned in the repo. |
-| Data audit (#4): `scripts/audit_inventory.py`, `docs/DATA_AUDIT.md` | Done on branch `m2/setup` (not yet in a PR) |
+| Project env `.venv` (Issue #7) | Python 3.11.18, packages pinned in `requirements.txt` / `requirements-lock.txt`, config in `configs/run.toml`. Reproduces the audit byte for byte: measured (`results/inventory/2026-11-04_audit/compare_to_2026-11-02_audit.csv`). Old `~/ids-capstone/.venv` (3.9.6) no longer used. |
+| Data audit (#4): `scripts/audit_inventory.py`, `docs/DATA_AUDIT.md` | Done; merged in PR #15 |
 | Split spec, baseline, model, evaluation | Not started |
 
 ## Next milestone: M2 — Data audit and reproducible baseline (Issues #4–#7)

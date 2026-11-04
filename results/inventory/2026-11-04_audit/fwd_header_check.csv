@@ -1,0 +1,9 @@
+file,positions,rows,rows_differing,rows_both_nan,identical
+Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv,34 55,225745,0,0,True
+Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv,34 55,286467,0,0,True
+Friday-WorkingHours-Morning.pcap_ISCX.csv,34 55,191033,0,0,True
+Monday-WorkingHours.pcap_ISCX.csv,34 55,529918,0,0,True
+Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv,34 55,288602,0,0,True
+Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv,34 55,170366,0,0,True
+Tuesday-WorkingHours.pcap_ISCX.csv,34 55,445909,0,0,True
+Wednesday-workingHours.pcap_ISCX.csv,34 55,692703,0,0,True

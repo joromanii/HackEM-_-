@@ -5,7 +5,7 @@ This audit reports what is in the raw files. It does not clean, drop or relabel 
 - **Run folder:** [`results/inventory/2026-11-02_audit/`](../results/inventory/2026-11-02_audit/)
 - **Script:** [`scripts/audit_inventory.py`](../scripts/audit_inventory.py), read-only on `~/Downloads/MachineLearningCVE/`
 - **Environment:** Python 3.9.6, pandas 2.2.3, numpy 2.0.2, scikit-learn 1.6.1 (recorded in [`run_meta.json`](../results/inventory/2026-11-02_audit/run_meta.json)). Runtime 14.6 s. No randomness.
-- **Re-run:** `python scripts/audit_inventory.py --out-dir results/inventory/<new-folder>` (the script refuses to overwrite an existing folder).
+- **Re-run:** `.venv/bin/python scripts/audit_inventory.py --out-dir results/inventory/<new-folder>` (setup: README "Setup and run") (the script refuses to overwrite an existing folder).
 
 All numbers below are `measured (results/inventory/2026-11-02_audit/...)` unless marked otherwise.
 
