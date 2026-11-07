@@ -1,0 +1,9 @@
+class,paper_train,paper_test,paper_train_share
+Normal,318087,136219,0.70016
+Bot,265,102,0.72207
+Brute Force,1904,813,0.70077
+DoS/DDoS,53427,23018,0.69889
+Infiltration,5,1,0.83333
+PortScan,22324,9558,0.70021
+Web Attack,292,134,0.68545
+TOTAL,396304,169845,0.7

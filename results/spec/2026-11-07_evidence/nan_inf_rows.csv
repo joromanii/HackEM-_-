@@ -1,0 +1,16 @@
+label,class,nan_or_inf,nan_or_inf_after_dedup,rows
+BENIGN,Normal,1777,1427,2273097
+Bot,Bot,10,5,1966
+DDoS,DoS/DDoS,2,2,128027
+DoS GoldenEye,DoS/DDoS,0,0,10293
+DoS Hulk,DoS/DDoS,949,3,231073
+DoS Slowhttptest,DoS/DDoS,0,0,5499
+DoS slowloris,DoS/DDoS,0,0,5796
+FTP-Patator,Brute Force,3,2,7938
+Heartbleed,DoS/DDoS,0,0,11
+Infiltration,Infiltration,0,0,36
+PortScan,PortScan,126,125,158930
+SSH-Patator,Brute Force,0,0,5897
+Web Attack � Brute Force,Web Attack,0,0,1507
+Web Attack � Sql Injection,Web Attack,0,0,21
+Web Attack � XSS,Web Attack,0,0,652
