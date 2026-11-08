@@ -1,0 +1,8 @@
+# Direct dependencies, exact versions (Python 3.11). Full lock: requirements-lock.txt
+# Same versions as the old ~/ids-capstone/.venv (its pip freeze, checked 2026-11-03). The 2026-11-02 audit's
+# run_meta.json recorded only pandas, numpy and scikit-learn.
+numpy==2.0.2
+pandas==2.2.3
+scikit-learn==1.6.1
+scipy==1.13.1
+matplotlib==3.9.4
