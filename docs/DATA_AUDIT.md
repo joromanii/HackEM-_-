@@ -1,4 +1,6 @@
-# Data audit: CIC-IDS2017 MachineLearningCSV (Issue #4)
+# Data audit: CIC-IDS2017 MachineLearningCSV (Issue #4) — superseded
+
+> **Superseded on 2026-11-13.** This audit belongs to the earlier target (Kurniabudi et al. 2020, CIC-IDS2017). The project now reproduces Rajagopal et al. 2020 on UNSW-NB15 (`docs/PAPER_METHOD.md`). Kept as a record; its numbers still match its results files.
 
 This audit reports what is in the raw files. It does not clean, drop or relabel anything. Choices about what to do with these findings belong in `docs/SPLIT_SPEC.md` (Issue #5).
 
