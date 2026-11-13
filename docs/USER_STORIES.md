@@ -10,7 +10,7 @@ User stories for reproducing **Rajagopal et al. (2020), Table 4: a stacking ense
 
 **Team** marks stories that need every member, or someone other than the author. Owners are chosen by the team and recorded on the issue, never filled in here.
 
-> Issue numbers assume Issues #4–#9 are re-pointed from CIC-IDS2017 to this paper; #1–#3 and #10–#13 keep their current topics. "New" means an issue still to be created.
+> Issue numbers assume Issues #4–#9 are re-pointed from CIC-IDS2017 to this paper; #1–#3 and #10–#13 keep their current topics; #20–#22 cover the wiki runbook, presentation and offline demo.
 
 ---
 
@@ -63,14 +63,14 @@ User stories for reproducing **Rajagopal et al. (2020), Table 4: a stacking ense
 | ID | User story | Acceptance criteria | Issue | Checklist | Status |
 |---|---|---|---|---|---|
 | M5-1 | As the **instructor**, I want a report that explains the method, deviations, results and gaps, so that I can grade from saved evidence. | `docs/REPORT.md` covers data, preprocessing, model settings, versions, seeds, the comparison table and the gap analysis. Every number links to a results file. Sections are split among members. | #10 | 4, 7, 8 | Not started (*Team*) |
-| M5-2 | As a **newcomer**, I want a wiki runbook, so that I can set up and run the project without asking anyone. | The wiki covers setup, downloading the data, the audit, baseline and stacking runs, and where results go. A member who didn't write it follows it and records where they got stuck. | New | 9 | Not started (*Team*) |
+| M5-2 | As a **newcomer**, I want a wiki runbook, so that I can set up and run the project without asking anyone. | The wiki covers setup, downloading the data, the audit, baseline and stacking runs, and where results go. A member who didn't write it follows it and records where they got stuck. | #20 | 9 | Not started (*Team*) |
 | M5-3 | As a **newcomer**, I want the README to show the result within a minute, so that I know what the project found right away. | The README top has the claim, our headline number beside the paper's, status, and links to the report and wiki. | #11 | 10 | Not started |
 | M5-4 | As the **team**, I want an accurate contribution table, so that each member is credited for real work. | Each row in the README's Individual Contribution Summary Table is backed by commits, issues, PRs or documents with that person's name. Points and percentages agreed by the team. | #11 | 11 | Not started (*Team*) |
 | M5-5 | As the **instructor**, I want a clean project board, so that I can see what was done, in progress or dropped. | Every card is closed, in progress with a reason, or dropped with a note. | #11, #13 | 12 | Not started |
 | M5-6 | As a **reviewer**, I want a final check from a fresh clone, so that we submit only what works. | Someone reruns the pipeline from a clean clone, checks each reported number against its file, checks links, and records what passed and what's unverified. | #12 | 3, 6, 9 | Not started (*Team*) |
-| M5-7 | As the **team**, I want a timed dry run of the presentation, so that we finish within the limit without cutting results. | At least one full run-through inside the time limit with the results section intact; the time is recorded. | New | 13 | Not started (*Team*) |
-| M5-8 | As a **presenter**, I want a demo fallback that works offline, so that a network or laptop problem doesn't stop the demo. | A recorded video or screenshots of the pipeline running play from the presentation machine with no network. | New | 14 | Not started |
-| M5-9 | As each **team member**, I want to know my section and the one number I explain, so that everyone presents confidently. | A list maps each member to a section and a number, confirmed by each member in the dry run. | New | 15 | Not started (*Team*) |
+| M5-7 | As the **team**, I want a timed dry run of the presentation, so that we finish within the limit without cutting results. | At least one full run-through inside the time limit with the results section intact; the time is recorded. | #21 | 13 | Not started (*Team*) |
+| M5-8 | As a **presenter**, I want a demo fallback that works offline, so that a network or laptop problem doesn't stop the demo. | A recorded video or screenshots of the pipeline running play from the presentation machine with no network. | #22 | 14 | Not started |
+| M5-9 | As each **team member**, I want to know my section and the one number I explain, so that everyone presents confidently. | A list maps each member to a section and a number, confirmed by each member in the dry run. | #21 | 15 | Not started (*Team*) |
 
 ---
 
