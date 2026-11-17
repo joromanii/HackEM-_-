@@ -2,17 +2,21 @@
 
 ## Project status
 
-The team has agreed to use the following working paper and reproduction target. The repository owner reports teammate agreement; record each teammate’s explicit vote in [issue #2](https://github.com/joromanii/HackEM-_-/issues/2) before marking the rubric's unanimous-commit condition complete. The implementation and reproduction measurements are not complete.
+**Claim we are reproducing:** Rajagopal et al. (2020) report that a stacking ensemble (random forest, K-nearest neighbours and logistic regression, combined by a support vector machine) using 11 UNSW-NB15 features reaches **0.94 accuracy** (precision 0.96, recall 0.93, F1 0.95, AUC 0.99, false alarm rate 5.2%) when classifying normal vs attack traffic on the 82,332-record UNSW-NB15 test set (Table 4). These are paper-reported values, not our results.
 
-**Paper:** Kurniabudi et al., “CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection,” *IEEE Access*, vol. 8 (2020), pp. 132911–132921. [DOI: 10.1109/ACCESS.2020.3009843](https://doi.org/10.1109/ACCESS.2020.3009843).
+**Our result:** not yet measured.
 
-**Target:** Table 9, Random Forest with the 22-feature Information Gain subset (>=0.4): reported accuracy 99.86%, recall 0.999, false-positive rate 0.003, and precision NaN. The paper says it uses 20% of MachineLearningCSV, removes one duplicated Fwd Header Length feature, relabels attack classes, and describes both a 70/30 split and 10-fold evaluation. It does not clearly explain how those two evaluation descriptions compose. The paper attributes NaN values to rare classes missing from folds and reports that RF does not detect Infiltration for this feature subset. These are paper-reported values, not our results. See the [paper-method specification](docs/PAPER_METHOD.md) for the 22-feature list and open protocol questions.
+**Paper:** Smitha Rajagopal, Poornima Panduranga Kundapur, Katiganere Siddaramappa Hareesha, “A Stacking Ensemble for Network Intrusion Detection Using Heterogeneous Datasets,” *Security and Communication Networks*, 2020, article 4586875. [DOI: 10.1155/2020/4586875](https://doi.org/10.1155/2020/4586875). Spec, settings and open questions: [docs/PAPER_METHOD.md](docs/PAPER_METHOD.md). User stories: [docs/USER_STORIES.md](docs/USER_STORIES.md).
 
-Start with [open Issues](https://github.com/joromanii/HackEM-_-/issues), the [IDS_Capstone project board](https://github.com/users/joromanii/projects/1), the [report](docs/REPORT.md), the [paper-method specification](docs/PAPER_METHOD.md), and [paper-selection issue #1](https://github.com/joromanii/HackEM-_-/issues/1).
+**Target changed on 2026-11-13.** The team moved from Kurniabudi et al. 2020 (CIC-IDS2017, Table 9) to this paper. Each member's vote on the new paper goes in [issue #2](https://github.com/joromanii/HackEM-_-/issues/2), and the reason for the change in [issue #1](https://github.com/joromanii/HackEM-_-/issues/1). Votes are pending.
 
-## Dataset starting point
+Start with [open Issues](https://github.com/joromanii/HackEM-_-/issues), the [IDS_Capstone project board](https://github.com/users/joromanii/projects/1), the [report](docs/REPORT.md) and the [paper-method specification](docs/PAPER_METHOD.md).
 
-The project owner reports CIC-IDS2017 MachineLearningCSV locally available and an initial count of 2,830,743 records, 15 labels, and 79 columns, with about 80.3% benign and 19.7% attack traffic. The Issue #4 audit reran these counts from the source files and they match: measured (`results/inventory/2026-11-02_audit/`). See [docs/DATA_AUDIT.md](docs/DATA_AUDIT.md) for the full inventory, including duplicate rows and NaN/Inf values. Do not commit raw dataset files, virtual environments, credentials, or machine-specific paths.
+## Dataset
+
+**UNSW-NB15** training (175,341 records) and testing (82,332 records), per the paper's Table 1 (`paper-reported`). That these are the official partition files is `unverified` until the data audit. Not downloaded yet; the official source must be confirmed first. Raw data is never committed. Do not commit raw dataset files, virtual environments, credentials, or machine-specific paths.
+
+**Earlier work (superseded):** a read-only audit of CIC-IDS2017 from the previous target is kept as a record in [docs/DATA_AUDIT.md](docs/DATA_AUDIT.md) and `results/inventory/`.
 
 ## Workflow
 

@@ -1,42 +1,39 @@
-# Project Brief: HackEM-_- — CIC-IDS2017 paper reproduction
+# Project Brief: HackEM-_- — UNSW-NB15 stacking-ensemble reproduction
 
 ## What this is
-A capstone project that reproduces and evaluates one published intrusion-detection result on CIC-IDS2017 (MachineLearningCSV).
-Target: Kurniabudi et al., "CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection," IEEE Access 2020 (DOI 10.1109/ACCESS.2020.3009843), **Table 9, Random Forest, 22 features**.
-We implement the paper's preprocessing and Information Gain feature selection as closely as the paper allows, measure our own results with fixed settings, and explain any gap. Ambiguities become documented deviations, not silent choices.
+A CIS 3370 capstone project that reproduces and evaluates one published intrusion-detection result.
+Target: Rajagopal, Kundapur & Hareesha, "A Stacking Ensemble for Network Intrusion Detection Using Heterogeneous Datasets," *Security and Communication Networks* 2020 (DOI 10.1155/2020/4586875), **Table 4: binary stacking ensemble on the UNSW-NB15 test set, accuracy 0.94**.
+We implement the paper's preprocessing, 11 features and stacking model (random forest, KNN and logistic regression combined by an SVM) as closely as the paper allows, measure our own results with fixed settings, and explain any gap. Ambiguities become documented deviations, not silent choices. Full spec: `docs/PAPER_METHOD.md`.
 
-## Current state (as of 2026-11-02)
+## Target change (2026-11-13)
+The team dropped the earlier target (Kurniabudi et al. 2020, CIC-IDS2017, Table 9) for this paper. Earlier CIC-IDS2017 work stays in the repo as a record: `docs/DATA_AUDIT.md`, `scripts/audit_inventory.py`, `results/inventory/`. The old spec is in git (`git show 33c47b5:docs/PAPER_METHOD.md`). The reason and votes go in Issues #1 and #2.
+
+## Current state (as of 2026-11-13)
 | Item | Status |
 |---|---|
-| Paper selected; owner's vote recorded in Issue #2 | Done. Teammate votes **pending**. |
-| Paper method spec: `docs/PAPER_METHOD.md` | Written, on branch `docs/select-cicids-paper` (PR #14, open) |
-| Paper numbers: 99.86% acc, 0.999 recall, 0.003 FPR, precision NaN | **Paper-reported only. Not reproduced.** |
-| Dataset CSVs at `~/Downloads/MachineLearningCVE/` | Present. Header check: 8 files, 79 columns, two `Fwd Header Length` columns |
-| Label counts `~/ids-capstone/results/dataset_label_counts.csv` | Exists: 2,830,743 rows, 15 labels. Rerun and matched exactly by the Issue #4 audit: measured (`results/inventory/2026-11-02_audit/label_count_comparison.csv`). |
-| Label names | The three Web Attack labels contain U+FFFD (bytes `ef bf bd`) in the raw files: measured (`results/inventory/2026-11-02_audit/label_encoding.csv`). See `docs/DATA_AUDIT.md`. |
-| Local env `~/ids-capstone/.venv` | Python 3.9.6 (system), pandas 2.2.3, scikit-learn 1.6.1, numpy 2.0.2. Not pinned in the repo. |
-| Data audit (#4): `scripts/audit_inventory.py`, `docs/DATA_AUDIT.md` | Done on branch `m2/setup` (not yet in a PR) |
-| Split spec, baseline, model, evaluation | Not started |
+| New paper chosen | Owner's choice. **Team votes pending** (Issue #2). |
+| Paper spec `docs/PAPER_METHOD.md` | Written on branch `docs/stacking-paper` |
+| Paper numbers: accuracy 0.94, precision 0.96, recall 0.93, F1 0.95, AUC 0.99, FAR 5.2% | **Paper-reported only. Not reproduced.** Arithmetic checks in the spec show truncation and an unexplained FAR. |
+| UNSW-NB15 data | **Not downloaded.** Official source to be confirmed; ask before downloading. |
+| Environment | Python 3.11 pin in PR #16 (open; dataset-independent, still valid). See that PR's `run_meta.json` evidence. |
+| Data audit, preprocessing spec, baseline, model, evaluation | Not started for UNSW-NB15 |
+| Deadline | About 3 weeks from 2026-11-13 (`unverified`; exact presentation date needed) |
 
-## Next milestone: M2 — Data audit and reproducible baseline (Issues #4–#7)
-Done means:
-- A clean checkout reproduces the dataset inventory (files, rows, labels, duplicates, Inf/NaN) from a committed script (#4).
-- Preprocessing and a leakage-safe split are written down **before** training (#5).
-- A baseline pipeline runs end to end with a fixed seed and saved outputs (#6).
-- Python version, packages, seeds and run steps are pinned (#7).
+## Next steps
+1. Team votes on the paper and target (Issue #2).
+2. Confirm the UNSW-NB15 source and download the training and testing CSVs.
+3. Data audit: rows, columns, class counts vs Table 1, missing values, duplicates.
+4. Team decides the open questions S1–S14 in `docs/PAPER_METHOD.md`; log them in `docs/DEVIATIONS.md`.
+5. Baseline (majority class, each base model alone), then the stacking ensemble, then the Table 4 comparison.
 
 ## Key components and where they live
-- Repo: `github.com/joromanii/HackEM-_-` (work in a local clone; kit files at repo root).
-- Paper spec: `docs/PAPER_METHOD.md`. Deviations log: `docs/DEVIATIONS.md` (TODO: create).
-- Raw data: `~/Downloads/MachineLearningCVE/` — **read-only, never committed**.
-- Earlier local work: `~/ids-capstone/` (`scripts/inspect_data.py`, `results/dataset_label_counts.csv`).
-- Issues: #1–#3 and #13 (M1), #4–#7 (M2), #8 (M3), #9 (M4), #10–#12 (M5).
+- Repo: `github.com/joromanii/HackEM-_-`.
+- Paper spec: `docs/PAPER_METHOD.md`. User stories: `docs/USER_STORIES.md`. Deviations log: `docs/DEVIATIONS.md` (to be created for this paper).
+- Raw data: outside the repo, **read-only, never committed**. Location to be set in `configs/run.toml`.
+- Grading: CIS 3370 *Capstone Readiness Checklist* (15 items); final deliverables (wiki, repo, board, presentation) are not accepted late.
 
 ## Open questions
-- How did the paper draw its 20% sample? (Unspecified so far.)
-- Does 10-fold CV run inside the 70% train split, or on the whole 20% sample?
-- Weka 3.9 Random Forest settings, and how metrics were averaged (multiclass).
-- Which duplicate `Fwd Header Length` column was dropped? The two are identical in every row: measured (`results/inventory/2026-11-02_audit/fwd_header_check.csv`), so the choice doesn't change values, but the rule still needs writing down.
-- Do we remove duplicate rows? (Not stated in the paper; affects accuracy.) 308,381 rows (10.89%) are extra copies of an earlier identical row: measured (`results/inventory/2026-11-02_audit/duplicates.csv`).
-- Machine RAM: unknown. Load data in chunks or by column until confirmed.
-- Team roster and GitHub usernames: TODO. Issue assignments: TODO (team decision).
+- The 14 method questions S1–S14 in `docs/PAPER_METHOD.md`.
+- Presentation date and time limit.
+- The course's "first four questions" for describing data (checklist item 4).
+- Team roster and GitHub usernames, confirmed by each member.
