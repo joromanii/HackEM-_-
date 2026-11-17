@@ -31,6 +31,22 @@ Start with [open Issues](https://github.com/joromanii/HackEM-_-/issues), the [ID
 
 **Earlier work (superseded):** a read-only audit of CIC-IDS2017 from the previous target is kept as a record in [docs/DATA_AUDIT.md](docs/DATA_AUDIT.md) and `results/inventory/`.
 
+## Setup and run
+
+Full step-by-step instructions: [docs/wiki/Runbook.md](docs/wiki/Runbook.md). Short version, tested on macOS (Apple silicon) with Homebrew:
+
+```bash
+brew install python@3.11
+python3.11 -m venv .venv
+.venv/bin/pip install -r requirements-lock.txt
+.venv/bin/python scripts/audit_unsw.py                 # check your UNSW-NB15 files match ours
+.venv/bin/python scripts/run_models.py --task stacking # headline result, about 2 minutes
+```
+
+Put the UNSW-NB15 training and testing CSVs in `~/Downloads/UNSW-NB15/` first (runbook §3), or change `data_dir` in [configs/run.toml](configs/run.toml). Pinned versions: [requirements.txt](requirements.txt) (direct) and [requirements-lock.txt](requirements-lock.txt) (full `pip freeze`).
+
+**Not pinned:** the macOS version, the Homebrew Python build and CPU type; each run records them in its `run_meta.json`. The Python 3.11 setup reproduced every CSV of the earlier (superseded) CIC-IDS2017 audit byte for byte: measured ([`results/inventory/2026-11-04_audit/compare_to_2026-11-02_audit.csv`](results/inventory/2026-11-04_audit/compare_to_2026-11-02_audit.csv)).
+
 ## Workflow
 
 1. Verify the exact paper claim, citation, data match, feasibility, blockers, and fallback.

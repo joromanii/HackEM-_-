@@ -1,0 +1,6 @@
+label,rows_in_conflicting_groups
+BENIGN,736
+DDoS,6
+DoS Hulk,5224
+DoS slowloris,1
+PortScan,1053

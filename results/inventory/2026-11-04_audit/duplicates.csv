@@ -1,0 +1,18 @@
+scope,label,rows,duplicate_rows_extra_copies
+all_files,ALL,2830743,308381
+sum_within_each_file,ALL,2830743,256479
+all_files,BENIGN,2273097,176613
+all_files,Bot,1966,13
+all_files,DDoS,128027,11
+all_files,DoS GoldenEye,10293,7
+all_files,DoS Hulk,231073,58224
+all_files,DoS Slowhttptest,5499,271
+all_files,DoS slowloris,5796,411
+all_files,FTP-Patator,7938,2005
+all_files,Heartbleed,11,0
+all_files,Infiltration,36,0
+all_files,PortScan,158930,68111
+all_files,SSH-Patator,5897,2678
+all_files,Web Attack � Brute Force,1507,37
+all_files,Web Attack � Sql Injection,21,0
+all_files,Web Attack � XSS,652,0

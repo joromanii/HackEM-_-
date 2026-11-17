@@ -22,13 +22,14 @@ import platform
 import subprocess
 import sys
 import time
+import tomllib
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_DATA_DIR = Path.home() / "Downloads" / "MachineLearningCVE"
+DEFAULT_CONFIG = REPO_ROOT / "configs" / "run.toml"
 DEFAULT_OLD_COUNTS = Path.home() / "ids-capstone" / "results" / "dataset_label_counts.csv"
 LABEL = "Label"  # matched after stripping spaces from the raw header
 FWD_HEADER = "Fwd Header Length"
@@ -65,7 +66,18 @@ def describe_label(label: str) -> dict:
             "utf8_bytes_hex": label.encode("utf-8").hex(" ")}
 
 
-def audit(data_dir: Path, out_dir: Path, nrows: int | None, old_counts: Path) -> int:
+def load_config(path: Path) -> dict:
+    with path.open("rb") as f:
+        return tomllib.load(f)
+
+
+def config_path(value: str) -> Path:
+    p = Path(value).expanduser()
+    return p if p.is_absolute() else REPO_ROOT / p
+
+
+def audit(data_dir: Path, out_dir: Path, nrows: int | None, old_counts: Path,
+          config_file: Path, config: dict) -> int:
     t0 = time.time()
     started = dt.datetime.now().astimezone().isoformat(timespec="seconds")
     files = sorted(data_dir.glob("*.csv"))
@@ -213,6 +225,9 @@ def audit(data_dir: Path, out_dir: Path, nrows: int | None, old_counts: Path) ->
         "script_sha256": sha256_file(Path(__file__)),
         "args": {"data_dir": str(data_dir), "out_dir": str(out_dir), "nrows_per_file": nrows,
                  "old_counts": str(old_counts), "chunk_rows": CHUNK_ROWS},
+        "config_file": str(config_file),
+        "config_sha256": sha256_file(config_file),
+        "config": config,
         "started": started, "runtime_seconds": round(time.time() - t0, 1),
         "python": sys.version, "platform": platform.platform(),
         "packages": {"pandas": pd.__version__, "numpy": np.__version__, "scikit-learn": sklearn.__version__},
@@ -233,16 +248,22 @@ def audit(data_dir: Path, out_dir: Path, nrows: int | None, old_counts: Path) ->
 
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--data-dir", type=Path, default=DEFAULT_DATA_DIR)
-    p.add_argument("--out-dir", type=Path,
-                   default=REPO_ROOT / "results" / "inventory" / f"{dt.date.today().isoformat()}_audit")
+    p.add_argument("--config", type=Path, default=DEFAULT_CONFIG,
+                   help="TOML config with [paths] data_dir and results_dir (default: configs/run.toml)")
+    p.add_argument("--data-dir", type=Path, default=None, help="overrides [paths] data_dir")
+    p.add_argument("--out-dir", type=Path, default=None,
+                   help="default: <results_dir>/inventory/<today>_audit")
     p.add_argument("--nrows", type=int, default=None, help="rows per file (test runs only)")
     p.add_argument("--old-counts", type=Path, default=DEFAULT_OLD_COUNTS)
     a = p.parse_args()
-    if a.out_dir.exists():
-        print(f"Refusing to overwrite existing run folder: {a.out_dir}", file=sys.stderr)
+    config = load_config(a.config)
+    data_dir = a.data_dir or config_path(config["paths"]["data_dir"])
+    out_dir = a.out_dir or (config_path(config["paths"]["results_dir"]) / "inventory"
+                            / f"{dt.date.today().isoformat()}_audit")
+    if out_dir.exists():
+        print(f"Refusing to overwrite existing run folder: {out_dir}", file=sys.stderr)
         return 1
-    return audit(a.data_dir, a.out_dir, a.nrows, a.old_counts)
+    return audit(data_dir, out_dir, a.nrows, a.old_counts, a.config, config)
 
 
 if __name__ == "__main__":

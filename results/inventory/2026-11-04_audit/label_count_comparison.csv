@@ -1,0 +1,16 @@
+label,new_count,old_count,match
+BENIGN,2273097,2273097,True
+Bot,1966,1966,True
+DDoS,128027,128027,True
+DoS GoldenEye,10293,10293,True
+DoS Hulk,231073,231073,True
+DoS Slowhttptest,5499,5499,True
+DoS slowloris,5796,5796,True
+FTP-Patator,7938,7938,True
+Heartbleed,11,11,True
+Infiltration,36,36,True
+PortScan,158930,158930,True
+SSH-Patator,5897,5897,True
+Web Attack � Brute Force,1507,1507,True
+Web Attack � Sql Injection,21,21,True
+Web Attack � XSS,652,652,True
