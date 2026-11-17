@@ -56,7 +56,7 @@ Put the UNSW-NB15 training and testing CSVs in `~/Downloads/UNSW-NB15/` first (r
 5. Implement the approved paper method, log assumptions and deviations, then compare the target metrics quantitatively.
 6. Explain differences using evidence, finish the report, and perform a clean-checkout review.
 
-Five phase milestones are organized with dates intentionally unset until the course calendar is confirmed. No individual assignments or contributions are inferred. Use issues to record accepted owners, blockers, decisions, and evidence. Move project cards through Backlog, Ready, In progress, In review, and Done as work changes. Plan iterations when actual semester dates are known.
+Five phase milestones are organized with dates intentionally unset until the course calendar is confirmed. Issue owners were assigned on 2026-11-17 (see each issue and `docs/USER_STORIES.md` M1-12); contributions are never inferred. Use issues to record accepted owners, blockers, decisions, and evidence. Move project cards through Backlog, Ready, In progress, In review, and Done as work changes. Plan iterations when actual semester dates are known.
 
 ## Results and evidence
 

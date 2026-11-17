@@ -8,9 +8,9 @@ User stories for reproducing **Rajagopal et al. (2020), Table 4: a stacking ense
 
 **Status** as of 2026-11-17: Done · In review · In progress · Not started · Blocked.
 
-**Team** marks stories that need every member, or someone other than the author. Owners are chosen by the team and recorded on the issue, never filled in here.
+**Team** marks stories that need every member, or someone other than the author. Owners are recorded on the GitHub issue; this file only notes when assignments were made and by whom (M1-12).
 
-> Issue numbers assume Issues #4–#9 are re-pointed from CIC-IDS2017 to this paper; #1–#3 and #10–#13 keep their current topics; #20–#22 cover the wiki runbook, presentation and offline demo.
+> Issues #1, #3, #4, #5, #6, #8, #9 and #13 were re-pointed from CIC-IDS2017 to this paper; #2, #7 and #10–#12 kept their wording; #20–#22 are new (runbook, presentation, offline demo). See M1-11.
 
 ## How we keep stories (every task gets one)
 
@@ -37,7 +37,7 @@ Dr. Parra asks for user stories to be kept consistently. Our rule:
 | M1-9 | As a **researcher**, I want the repository set up before any analysis, so that every later result is reproducible and reviewable. | Agent rules (`CLAUDE.md`), a method-reviewer, a `.gitignore` that blocks data, a pinned Python 3.11 environment, one config file, and a branch-and-PR workflow. | #7, #11 | 3, 6 | Done (PR #15 merged 2026-11-02; environment in PR #16) |
 | M1-10 | As the **team**, we want our first paper's work kept as a record after switching, so that the change and the effort behind it are visible. | The CIC-IDS2017 audit (PR #15), split spec (PR #17, closed) and old spec (`git show 33c47b5:docs/PAPER_METHOD.md`) stay in the repo history and are labeled superseded. | #1, #13 | 11 | Done |
 | M1-11 | As the **instructor**, I want the issues, milestones and pull requests to describe the current paper, so that the board shows one project. | 8 issues re-pointed to the stacking paper (#1, #3, #4, #5, #6, #8, #9, #13); 3 new issues for the runbook, presentation and offline demo (#20–#22); old PRs #17 and #18 closed with a note (branches kept); milestone descriptions M1–M5 rewritten; comments on #2 and #7. | #13 | 12 | Done 2026-11-13 |
-| M1-12 | As the **team**, we want every open issue to have an owner, so that work is visible and each member is credited. | All 16 open issues assigned on 2026-11-17 using the split chosen by the repo owner: joromanii 5 issues (34 pts), elijahmart42 5 (19 pts), Aponce0003 6 (23 pts). The instructor's account is not assigned. Members can swap by reassigning and noting it on the issue. | #2, #11 | 11, 15 | Done 2026-11-17 (members to confirm) |
+| M1-12 | As the **team**, we want every open issue to have an owner, so that work is visible and each member is credited. | All 16 open issues assigned on 2026-11-17 (before #7 closed the same day) using the split chosen by the repo owner: joromanii 5 issues (34 pts), elijahmart42 5 (19 pts), Aponce0003 6 (23 pts). The instructor's account is not assigned. Members can swap by reassigning and noting it on the issue. | #2, #11 | 11, 15 | Done 2026-11-17 (members to confirm) |
 | M1-13 | As the **instructor**, I want a user story for every piece of work, so that I can follow the project's progress consistently. | The "How we keep stories" rule above; this file updated in the same PR as each task, with dated statuses. | #11 | 11, 12 | Ongoing (rule adopted 2026-11-17) |
 
 ## M2 — Data audit and reproducible baseline
@@ -51,7 +51,7 @@ Dr. Parra asks for user stories to be kept consistently. Our rule:
 | M2-5 | As a **future reviewer**, I want pinned Python, packages and one config file, so that the project runs the same on any machine. | `requirements.txt`, `requirements-lock.txt` and `configs/run.toml` (data paths updated for UNSW-NB15). | #7 | 3, 6 | Done: PR #16 merged 2026-11-17, Issue #7 closed |
 | M2-6 | As the **team**, I want each open method question (S1–S14) decided before coding, so that no choice is made after seeing results. | `docs/DEVIATIONS.md` has a row per question with the choice, where the team agreed, and the date. | #5 | 6, 8 | Proposed choices logged (D1–D19); team approval pending (*Team*) |
 | M2-7 | As a **researcher**, I want a baseline scored before the stacking model, so that we know what stacking adds. | One command scores a majority-class predictor and each base model alone (RF, KNN, LR) on the same split and features. A run folder holds config, seed, versions, runtime, confusion matrices and metrics. Not called a reproduction. | #6 | 5 | Done: `results/runs/2026-11-15_baseline_binary_seed42/` |
-| M2-8 | As a **researcher**, I want to know whether the warnings printed during training are real problems, so that we don't report results from a broken fit. | Logistic regression's numeric warnings traced to numpy 2.0 with Apple's Accelerate library; inputs finite; fit converges in 45 steps and agrees with another solver on 99.98% of test predictions. Logged as E1 in `docs/DEVIATIONS.md`. | #8 | 6 | Done 2026-11-15 (session check, not saved as a results file) |
+| M2-8 | As a **researcher**, I want to know whether the warnings printed during training are real problems, so that we don't report results from a broken fit. | Logistic regression's numeric warnings are seen with numpy 2.0.2 and Apple's Accelerate BLAS; the inputs are finite, and the fit converges in 45 steps and agrees with another solver on 99.98% of test predictions (`unverified`: session check, not saved). Logged as E1 in `docs/DEVIATIONS.md`. | #8 | 6 | Done 2026-11-15 (session check, not saved as a results file) |
 | M2-9 | As a **reviewer**, I want open pull requests kept up to date with `main`, so that they can be merged without breaking anything. | `main` merged into PR #16's branch; conflicts in `BRIEF.md` and `configs/run.toml` resolved in favour of `main` (the UNSW-NB15 target); stale setup text in `README.md` and `docs/DATA_AUDIT.md` fixed; old audit script left unchanged so its recorded checksum still matches. PR #16 merged, closing #7. | #7 | 3 | Done 2026-11-17 |
 
 ## M3 — Faithful paper method
@@ -64,7 +64,7 @@ Dr. Parra asks for user stories to be kept consistently. Our rule:
 | M3-4 | As a **researcher**, I want the SVM's runtime checked on a sample first, so that a slow full run doesn't block the schedule. | Timing on a sample is saved. Any subsampling or setting change for speed is logged as a deviation before the full run. | #8 | 6 | Done: timed on 5,000 and 20,000-row samples in a scratch dry run (not saved); full run 130 s, no subsampling needed |
 | M3-5 | As a **reviewer**, I want one command that goes from raw data to the headline number, so that I can rerun it on my machine. | One command in the README and wiki produces the Table 4 comparison. A member who didn't write the code runs it and gets the same numbers. | #8, #12 | 6 | Runbook ready; second-member run pending (*Team*) |
 | M3-6 | As a **reviewer**, I want each method PR checked against the paper, so that mistakes are caught before results are reported. | Each PR includes the method-reviewer report and is approved by at least one member. | #8 | 6 | Done for PRs #19 and #23 (method-reviewer report in each); teammate approvals still needed (*Team*) |
-| M3-7 | As a **reviewer**, I want the headline result re-run with the final committed code, so that we know the code in the repo is the code that produced it. | Re-run gives identical metrics to the headline run and records checksums of every script (`results/runs/2026-11-15_stacking_binary_seed42_rerun_current_code/`). | #8, #12 | 6 | Done 2026-11-15 |
+| M3-7 | As a **reviewer**, I want the headline result re-run with the final code, so that we know the code in the repo is the code that produced it. | Re-run with the final code (before it was committed) gives identical metrics to the headline run, and records checksums of every script so they can be matched to the committed files (`results/runs/2026-11-15_stacking_binary_seed42_rerun_current_code/`). | #8, #12 | 6 | Done 2026-11-15 |
 
 ## M4 — Evaluation and gap analysis
 
@@ -93,7 +93,7 @@ Dr. Parra asks for user stories to be kept consistently. Our rule:
 | M5-7 | As the **team**, I want a timed dry run of the presentation, so that we finish within the limit without cutting results. | At least one full run-through inside the time limit with the results section intact; the time is recorded. | #21 | 13 | Outline drafted in `docs/PRESENTATION.md`; dry run not started (*Team*) |
 | M5-8 | As a **presenter**, I want a demo fallback that works offline, so that a network or laptop problem doesn't stop the demo. | A recorded video or screenshots of the pipeline running play from the presentation machine with no network. | #22 | 14 | Not started |
 | M5-9 | As each **team member**, I want to know my section and the one number I explain, so that everyone presents confidently. | A list maps each member to a section and a number, confirmed by each member in the dry run. | #21 | 15 | Not started (*Team*) |
-| M5-10 | As the **team**, we want every pull request checked by the method-reviewer before it's opened, so that wrong numbers or unlogged choices are caught early. | Each PR description includes the reviewer's verdict, its 9-check table and what was fixed (PRs #15, #19, #23). | #11, #12 | 2, 7, 8 | Done for all PRs so far; continues for every PR |
+| M5-10 | As the **team**, we want every pull request checked by the method-reviewer before it's opened, so that wrong numbers or unlogged choices are caught early. | Each PR description includes the reviewer's verdict, its 9-check table and what was fixed. | #11, #12 | 2, 7, 8 | Done for PRs #15, #16, #17, #19, #23; PR #18 (docs only) was opened without one. Continues for every PR |
 
 ---
 
@@ -103,10 +103,10 @@ Dr. Parra asks for user stories to be kept consistently. Our rule:
 |---|---|
 | 1 Claim in one sentence | M1-1, M1-7 |
 | 2 Paper's numbers recorded | M1-2, M1-7, M5-10 |
-| 3 Same counts on a clean machine | M2-1, M2-2, M2-3, M2-5, M2-9, M5-6 |
+| 3 Same counts on a clean machine | M1-9, M2-1, M2-2, M2-3, M2-5, M2-9, M5-6 |
 | 4 Data described the course's way | M2-2, M2-4, M5-1 |
 | 5 Baseline before the paper's method | M2-7, M4-3 |
-| 6 Method runs end to end, one command | M2-5, M2-6, M2-8, M3-1 to M3-7, M5-6 |
+| 6 Method runs end to end, one command | M1-9, M2-5, M2-6, M2-8, M3-1 to M3-7, M5-6 |
 | 7 Paper / ours / difference table | M4-1, M4-2, M4-3, M5-1, M5-10 |
 | 8 Every gap has a reason | M2-6, M3-1, M4-2, M4-4 to M4-9, M5-1, M5-10 |
 | 9 Wiki runbook | M5-2, M5-6 |

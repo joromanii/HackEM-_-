@@ -183,7 +183,7 @@ See the runbook: [docs/wiki/Runbook.md](wiki/Runbook.md) (to be copied into the 
 | Seed runs | `results/runs/2026-11-15_stacking_binary_seed{1..5}/` | Run-to-run variation |
 | Preprocessing variants | `results/runs/2026-11-15_stacking_binary_seed42_{log1p,minmax_notransform,hashing}/` | Sensitivity to unstated steps |
 | CV on training | [`results/runs/2026-11-15_cv_train_stacking_seed42/`](../results/runs/2026-11-15_cv_train_stacking_seed42/) | Comparison with paper Table 5 |
-| False-alarm analysis | [`results/runs/2026-11-15_error_analysis_stacking_seed42/`](../results/runs/2026-11-15_error_analysis_stacking_seed42/), [`results/runs/2026-11-15_sttl_profile/`](../results/runs/2026-11-15_sttl_profile/) | Cause of the gap |
+| False-alarm analysis | [`results/runs/2026-11-15_error_analysis_stacking_seed42/`](../results/runs/2026-11-15_error_analysis_stacking_seed42/), [`results/runs/2026-11-15_sttl_profile/`](../results/runs/2026-11-15_sttl_profile/) | Where false alarms concentrate (not a tested cause) |
 | Comparison table | [`results/comparison/2026-11-15_table4/`](../results/comparison/2026-11-15_table4/) | Paper / ours / difference |
 | Config and environment | `configs/run.toml`, `configs/variants/`, `requirements-lock.txt` | Settings and versions |
 | Decisions | `docs/DEVIATIONS.md`, Issue #5 | Every unstated choice |
