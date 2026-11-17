@@ -1,0 +1,5 @@
+model,subset,rows,accuracy,macro_f1,weighted_f1,fit_seconds,predict_seconds
+majority,test_all,82332,0.4494,0.062012,0.278681,0.5,0.0
+rf,test_all,82332,0.754664,0.489082,0.771082,1.9,0.1
+knn,test_all,82332,0.726024,0.46046,0.756098,0.6,7.6
+lr,test_all,82332,0.659634,0.319623,0.666661,3.3,0.0

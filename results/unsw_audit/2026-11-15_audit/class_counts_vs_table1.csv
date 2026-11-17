@@ -1,0 +1,12 @@
+class,train,paper_train,test,paper_test,match
+Normal,56000,56000,37000,37000,True
+Generic,40000,40000,18871,18871,True
+Exploits,33393,33393,11132,11132,True
+Fuzzers,18184,18184,6062,6062,True
+DoS,12264,12264,4089,4089,True
+Reconnaissance,10491,10491,3496,3496,True
+Analysis,2000,2000,677,677,True
+Backdoor,1746,1746,583,583,True
+Shellcode,1133,1133,378,378,True
+Worms,130,130,44,44,True
+TOTAL,175341,175341,82332,82332,True

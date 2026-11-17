@@ -1,0 +1,9 @@
+service,normal_test_rows,false_positives,fp_rate,share_of_all_fp
+-,27375,8574,0.3132,0.8307
+http,4013,1450,0.3613,0.1405
+ftp,758,295,0.3892,0.0286
+radius,2,2,1.0,0.0002
+dns,3068,1,0.0003,0.0001
+ftp-data,949,0,0.0,0.0
+smtp,635,0,0.0,0.0
+ssh,200,0,0.0,0.0
