@@ -1,0 +1,49 @@
+# Sensitivity variant of configs/run.toml: feature hashing for service. Used only for gap analysis (Issue #9).
+# Project run configuration. One seed for the whole project.
+# Paths may start with "~". Relative paths are relative to the repo root.
+# Method choices marked PROPOSED are logged in docs/DEVIATIONS.md and still
+# need team approval (Issue #5). Change them here, not in code.
+
+seed = 42
+
+[paths]
+data_dir = "~/Downloads/UNSW-NB15"            # official UNSW-NB15 partition files, read-only
+train_file = "UNSW_NB15_training-set.csv"     # 175,341 records (paper Table 1)
+test_file = "UNSW_NB15_testing-set.csv"       # 82,332 records (paper Table 1)
+results_dir = "results"                        # run folders are created under here
+
+[data]
+label_col = "label"            # binary: 0 normal, 1 attack (dataset convention)
+category_col = "attack_cat"    # 10-class label
+id_col = "id"                  # row number; never used as a feature
+
+[features]
+# Paper §3.1: the 11 selected features (selected by name).
+names = ["sbytes", "sttl", "sload", "tcprtt", "smean", "ct_srv_src",
+         "ct_state_ttl", "ct_src_dport_ltm", "ct_dst_src_ltm", "ct_srv_dst", "service"]
+categorical = ["service"]
+
+[preprocess]
+# PROPOSED (D3, D4, D5). See docs/DEVIATIONS.md.
+numeric_transform = "yeo-johnson"   # "yeo-johnson" | "log1p" | "none"
+scaler = "standard"                  # "standard" | "minmax"
+categorical_encoding = "hashing"      # "onehot" | "hashing"
+hashing_n_features = 16              # used only if categorical_encoding = "hashing"
+
+[models]
+# Paper Table 3 (UNSW-NB15 column); unstated settings are PROPOSED (D9).
+rf_n_estimators = 100
+rf_criterion = "gini"
+knn_n_neighbors = 5
+knn_metric = "minkowski"
+lr_penalty = "l2"
+lr_max_iter = 1000
+svm_C = 1.0
+svm_kernel = "rbf"
+svm_gamma = "scale"
+
+[stacking]
+# PROPOSED (D10). Paper Algorithm 1 uses cross-validated base predictions; Table 5 uses 10 folds.
+cv_folds = 10
+stack_method = "predict_proba"   # base-model outputs given to the SVM
+passthrough = false              # SVM sees base outputs only
