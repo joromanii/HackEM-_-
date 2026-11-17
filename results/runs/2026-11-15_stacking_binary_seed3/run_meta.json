@@ -1,0 +1,99 @@
+{
+  "script": "scripts/run_models.py",
+  "script_sha256": "144e3b9f50a2cbf8b9b0f54b67c023697b06a26ecaef97b82761339469b9be40",
+  "started": "2026-11-15T01:42:45-06:00",
+  "config_file": "configs/run.toml",
+  "config_sha256": "46d6e085a78f635fae5360580a35c5ee714f4e34fed9766c51de22442d4873a6",
+  "config": {
+    "seed": 42,
+    "paths": {
+      "data_dir": "~/Downloads/UNSW-NB15",
+      "train_file": "UNSW_NB15_training-set.csv",
+      "test_file": "UNSW_NB15_testing-set.csv",
+      "results_dir": "results"
+    },
+    "data": {
+      "label_col": "label",
+      "category_col": "attack_cat",
+      "id_col": "id"
+    },
+    "features": {
+      "names": [
+        "sbytes",
+        "sttl",
+        "sload",
+        "tcprtt",
+        "smean",
+        "ct_srv_src",
+        "ct_state_ttl",
+        "ct_src_dport_ltm",
+        "ct_dst_src_ltm",
+        "ct_srv_dst",
+        "service"
+      ],
+      "categorical": [
+        "service"
+      ]
+    },
+    "preprocess": {
+      "numeric_transform": "yeo-johnson",
+      "scaler": "standard",
+      "categorical_encoding": "onehot",
+      "hashing_n_features": 16
+    },
+    "models": {
+      "rf_n_estimators": 100,
+      "rf_criterion": "gini",
+      "knn_n_neighbors": 5,
+      "knn_metric": "minkowski",
+      "lr_penalty": "l2",
+      "lr_max_iter": 1000,
+      "svm_C": 1.0,
+      "svm_kernel": "rbf",
+      "svm_gamma": "scale"
+    },
+    "stacking": {
+      "cv_folds": 10,
+      "stack_method": "predict_proba",
+      "passthrough": false
+    }
+  },
+  "inputs": {
+    "UNSW_NB15_training-set.csv": {
+      "sha256": "bec7dd5ec88dc2a0ccc7a07879d338395ed7421750f675fd0339e07dfe0648fa",
+      "bytes": 32293018
+    },
+    "UNSW_NB15_testing-set.csv": {
+      "sha256": "734fe6642edf758f7c94d7d9149426b49d202fe8e7bf0bef47392489c3c0a559",
+      "bytes": 15380800
+    }
+  },
+  "python": "3.11.18",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "cpu_count": 10,
+  "packages": {
+    "numpy": "2.0.2",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1"
+  },
+  "git": {
+    "commit": "63c8034a4a0d6e88ab1cc240160c3d394f4238c7",
+    "branch": "m2/unsw-pipeline",
+    "dirty_files": "M docs/USER_STORIES.md\n?? configs/\n?? docs/DEVIATIONS.md\n?? docs/MEETINGS.md\n?? docs/wiki/\n?? requirements-lock.txt\n?? requirements.txt\n?? results/runs/\n?? results/unsw_audit/\n?? scripts/audit_unsw.py\n?? scripts/common.py\n?? scripts/compare.py\n?? scripts/cv_train.py\n?? scripts/error_analysis.py\n?? scripts/models.py\n?? scripts/run_models.py"
+  },
+  "args": {
+    "task": "stacking",
+    "target": "binary",
+    "seed": 3,
+    "sample_n": null,
+    "tag": null
+  },
+  "runtime_seconds": 175.7,
+  "train_rows": 175341,
+  "test_rows": 82332,
+  "test_unseen_rows": 78085,
+  "positive_class": "attack (label 1)",
+  "far_formula": "FP / (FP + TN)",
+  "auc_score": "SVM decision_function (stacking); decision_function or predict_proba[:,1] (baseline)"
+}

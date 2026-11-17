@@ -1,0 +1,3 @@
+model,subset,rows,TP,TN,FN,FP,accuracy,precision,recall,f1,far,auc,fit_seconds,predict_seconds
+stacking,test_all,82332,44554,26582,778,10418,0.864014,0.810485,0.982838,0.888379,0.281568,0.927783,144.4,35.1
+stacking,test_unseen,78085,41501,25608,777,10199,0.859435,0.802727,0.981622,0.883207,0.284833,0.924993,144.4,35.1

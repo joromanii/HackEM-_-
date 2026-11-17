@@ -66,7 +66,7 @@ AUC 0.99 cannot be checked from the counts.
 | Worms | 130 | 44 |
 | **Total** | **175,341** | **82,332** |
 
-`unverified`: these totals match the official UNSW-NB15 training and testing partition files (`UNSW_NB15_training-set.csv`, `UNSW_NB15_testing-set.csv`). Confirm by counting the downloaded files. The paper's own data link (Data Availability section) points to an old UNSW address; the current download location must be confirmed before downloading.
+These counts match the official UNSW-NB15 partition files `UNSW_NB15_training-set.csv` and `UNSW_NB15_testing-set.csv` exactly, in every class: `measured (results/unsw_audit/2026-11-15_audit/class_counts_vs_table1.csv)`. The paper's own data link (Data Availability section) points to an old UNSW address. Current source: https://research.unsw.edu.au/projects/unsw-nb15-dataset (downloaded 2026-11-15; steps in `docs/wiki/Runbook.md`).
 
 ## Method as described
 
@@ -74,7 +74,7 @@ AUC 0.99 cannot be checked from the counts.
 
 `sbytes`, `sttl`, `sload`, `tcprtt`, `smean`, `ct_srv_src`, `ct_state_ttl`, `ct_src_dport_ltm`, `ct_dst_src_ltm`, `ct_srv_dst`, `service`
 
-`service` is a text (categorical) column. The other 10 are numeric (`unverified` until the audit).
+`service` is a text (categorical) column. The other 10 are numeric: `measured (results/unsw_audit/2026-11-15_audit/feature_summary.csv)`.
 
 **Preprocessing (§3.1):** missing values and outliers "were compensated by making the distribution normal"; feature scaling was applied so large-range features don't dominate. No method names are given.
 
@@ -99,7 +99,7 @@ These come from the paper, the project rules (`CLAUDE.md`) or the course's readi
 
 1. **Fit every learned step on training data only** (project rules; standard leakage control): scaling, encoding, any imputation or transform, any feature ranking. The test set is used once, for the final score.
 2. **Select features by column name** (project rules), and stop if any of the 11 names is missing.
-3. **Compare against Table 4 on the 82,332-record test set** (paper Table 1; that it is the official testing file is `unverified`, S1), with the confusion matrix and the positive class stated.
+3. **Compare against Table 4 on the 82,332-record test set** (paper Table 1; confirmed as the official testing file by the audit, D1), with the confusion matrix and the positive class stated.
 4. **Fix seeds** (project rules) from the project config, and save config, package versions and runtime with every run.
 5. **Run a baseline first** (course readiness checklist item 5, not the paper): a majority-class predictor and each base model on its own, on the same split. The paper reports no single-model numbers, so these have no paper value to compare against.
 6. **Never tune toward the paper's numbers** (project rules; Table 4: 0.94 / 0.96 / 0.93 / 0.95 / 0.99 / 5.2%).
@@ -129,19 +129,19 @@ Do not infer unstated settings from the paper's reported scores.
 
 ## Reproduction comparison table
 
-Fill the "Ours" column only from saved, re-runnable runs (`results/...`).
+Filled from saved, re-runnable runs: `measured (results/comparison/2026-11-15_table4/comparison.csv)`. Analysis: `docs/REPORT.md` §7.
 
 | Metric (binary, UNSW-NB15 test set) | Paper (Table 4) | Ours | Difference | Notes |
 |---|---:|---:|---:|---|
-| Accuracy | 0.94 | Pending | Pending | Paper likely truncated (counts give 0.946) |
-| Precision | 0.96 | Pending | Pending | Attack = positive (proposed, S9) |
-| Recall | 0.93 | Pending | Pending | Paper likely truncated (counts give 0.938) |
-| F1 | 0.95 | Pending | Pending | |
-| AUC | 0.99 | Pending | Pending | State which scores the AUC uses |
-| FAR | 5.2% | Pending | Pending | Paper formula unknown (S10) |
+| Accuracy | 0.94 | 0.8648 | −0.0752 | Paper likely truncated (counts give 0.946) |
+| Precision | 0.96 | 0.8118 | −0.1482 | Attack = positive (proposed, D14) |
+| Recall | 0.93 | 0.9821 | +0.0521 | Paper likely truncated (counts give 0.938) |
+| F1 | 0.95 | 0.8889 | −0.0611 | |
+| AUC | 0.99 | 0.9248 | −0.0652 | SVM decision function (D17) |
+| FAR | 5.2% | 27.90% | +22.70 points | FP/(FP+TN) (D15); paper formula unknown |
 
 ## Source links
 
 - [Full text, Wiley Online Library](https://onlinelibrary.wiley.com/doi/10.1155/2020/4586875)
 - [DOI 10.1155/2020/4586875](https://doi.org/10.1155/2020/4586875)
-- UNSW-NB15 dataset: official page to be confirmed before download (the paper's link is outdated).
+- UNSW-NB15 dataset: https://research.unsw.edu.au/projects/unsw-nb15-dataset (the paper's link is outdated).

@@ -1,0 +1,2 @@
+model,subset,rows,accuracy,macro_f1,weighted_f1,fit_seconds,predict_seconds
+stacking,test_all,82332,0.753292,0.469855,0.763903,483.1,255.8

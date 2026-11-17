@@ -1,0 +1,33 @@
+{
+  "script": "scripts/compare.py",
+  "script_sha256": "a1641176ebfbc0bd1c8065ca1e37bc30c9c09e428305ef0f34f8608aabc76af1",
+  "inputs": {
+    "results/runs/2026-11-15_stacking_binary_seed42": "8ede6cb0472a662d372010a6c3e4cac5c60e487684ec55d47c023e9b77c1ff5e",
+    "results/runs/2026-11-15_stacking_binary_seed1": "758ba7f0bccc26a197dd4ea1a38531aeaf231db31030952bfec8ea6505d31f75",
+    "results/runs/2026-11-15_stacking_binary_seed2": "49694ee02cd629d34f63c9498799f013534de24045aca6dd290bb0d1d36e8405",
+    "results/runs/2026-11-15_stacking_binary_seed3": "bbb484c6756aa7014a6abe016dfea2cdb5e772217a00a596cea9e7f1f1246f2e",
+    "results/runs/2026-11-15_stacking_binary_seed4": "d120bce153286d0076eabd04abebb082cebd247ae6e4985d00d186f0934d157c",
+    "results/runs/2026-11-15_stacking_binary_seed5": "08301d609386a1090097878b8a3de4513addbcb992d15c77489cc121e91ef9aa",
+    "results/runs/2026-11-15_stacking_binary_seed42_log1p": "27d703654ea3e069a51333b19b9b6b9ef722aea5fd7a41bbd8df701bd0e693db",
+    "results/runs/2026-11-15_stacking_binary_seed42_minmax_notransform": "d36f424ea5a78b83b53fcc931835122cd441fc88eb20dd86dfb110ce4f7627f9",
+    "results/runs/2026-11-15_stacking_binary_seed42_hashing": "48c119b0e38e1109dfdc23c646ad7fdd95b5d6fa49ee9a3f50602eac00fe48dc",
+    "results/runs/2026-11-15_baseline_binary_seed42": "33e3a33d61cee026001f1868ec04934fa997d98aadc862a83a00e4834e061fa3",
+    "results/runs/2026-11-15_cv_train_stacking_seed42": "6d6217e293e03197fc1132ca03bb47a6e16d30dcf4a5b05d00710eabd44ddf52"
+  },
+  "paper_values": {
+    "table4": {
+      "accuracy": 0.94,
+      "precision": 0.96,
+      "recall": 0.93,
+      "f1": 0.95,
+      "auc": 0.99,
+      "far": 0.052
+    },
+    "table4_counts": {
+      "TP": 42535,
+      "TN": 35365,
+      "FN": 2797,
+      "FP": 1635
+    }
+  }
+}
