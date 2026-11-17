@@ -1,0 +1,4 @@
+variant,accuracy,precision,recall,f1,auc,far,run
+log1p,0.86405,0.810439,0.983014,0.888424,0.915188,0.281703,results/runs/2026-11-15_stacking_binary_seed42_log1p
+minmax_notransform,0.864014,0.810485,0.982838,0.888379,0.927783,0.281568,results/runs/2026-11-15_stacking_binary_seed42_minmax_notransform
+hashing,0.865192,0.812248,0.982198,0.889175,0.924274,0.278162,results/runs/2026-11-15_stacking_binary_seed42_hashing

@@ -2,48 +2,50 @@
 
 ## Project status
 
-The team has agreed to use the following working paper and reproduction target. The repository owner reports teammate agreement; record each teammate’s explicit vote in [issue #2](https://github.com/joromanii/HackEM-_-/issues/2) before marking the rubric's unanimous-commit condition complete. The implementation and reproduction measurements are not complete.
+**Claim we are reproducing:** Rajagopal et al. (2020) report that a stacking ensemble (random forest, K-nearest neighbours and logistic regression, combined by a support vector machine) using 11 UNSW-NB15 features reaches **0.94 accuracy** (precision 0.96, recall 0.93, F1 0.95, AUC 0.99, false alarm rate 5.2%) when classifying normal vs attack traffic on the 82,332-record UNSW-NB15 test set (Table 4). These are paper-reported values, not our results.
 
-**Paper:** Kurniabudi et al., “CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection,” *IEEE Access*, vol. 8 (2020), pp. 132911–132921. [DOI: 10.1109/ACCESS.2020.3009843](https://doi.org/10.1109/ACCESS.2020.3009843).
+**Our result:** **not reproduced.** Built as the paper describes, our stacking ensemble reaches **0.8648 accuracy** on the same test set (paper 0.94), with a false alarm rate of **27.9%** (paper 5.2%): `measured (results/comparison/2026-11-15_table4/comparison.md)`. Seed variation, the three alternative preprocessing choices we tested, and duplicate rows don't account for the gap. In 10-fold cross-validation on the training file our model scores 0.9619 (`measured (results/runs/2026-11-15_cv_train_stacking_seed42/summary_vs_table5.csv)`; optimistic, as the file has many duplicate rows) against the paper's 0.9285 (`paper-reported`, Table 5). 87.4% of our false alarms are normal test records with `sttl` = 254, a value that is about 90% attack traffic in the training file (`derived` from `results/runs/2026-11-15_sttl_profile/`). How the paper reached its test result is not determined. Full analysis: [docs/REPORT.md](docs/REPORT.md) §7.
 
-**Target:** Table 9, Random Forest with the 22-feature Information Gain subset (>=0.4): reported accuracy 99.86%, recall 0.999, false-positive rate 0.003, and precision NaN. The paper says it uses 20% of MachineLearningCSV, removes one duplicated Fwd Header Length feature, relabels attack classes, and describes both a 70/30 split and 10-fold evaluation. It does not clearly explain how those two evaluation descriptions compose. The paper attributes NaN values to rare classes missing from folds and reports that RF does not detect Infiltration for this feature subset. These are paper-reported values, not our results. See the [paper-method specification](docs/PAPER_METHOD.md) for the 22-feature list and open protocol questions.
+| Metric (binary, UNSW-NB15 test set) | Paper (Table 4) | Ours | Difference |
+|---|---:|---:|---:|
+| Accuracy | 0.94 | 0.8648 | −0.0752 |
+| Precision | 0.96 | 0.8118 | −0.1482 |
+| Recall | 0.93 | 0.9821 | +0.0521 |
+| F1 | 0.95 | 0.8889 | −0.0611 |
+| AUC | 0.99 | 0.9248 | −0.0652 |
+| FAR | 5.2% | 27.90% | +22.70 points |
 
-Start with [open Issues](https://github.com/joromanii/HackEM-_-/issues), the [IDS_Capstone project board](https://github.com/users/joromanii/projects/1), the [report](docs/REPORT.md), the [paper-method specification](docs/PAPER_METHOD.md), and [paper-selection issue #1](https://github.com/joromanii/HackEM-_-/issues/1).
+Attack = positive class (D14); FAR = FP/(FP+TN) (D15); AUC from the SVM decision function (D17); ours rounded to 4 decimals, while the paper's values look truncated (D16).
 
-## Dataset starting point
+Reproduce it: [runbook](docs/wiki/Runbook.md). Method choices not stated in the paper are **proposed, pending team approval** in [docs/DEVIATIONS.md](docs/DEVIATIONS.md).
 
-The project owner reports CIC-IDS2017 MachineLearningCSV locally available and an initial count of 2,830,743 records, 15 labels, and 79 columns, with about 80.3% benign and 19.7% attack traffic. The Issue #4 audit reran these counts from the source files and they match: measured (`results/inventory/2026-11-02_audit/`). See [docs/DATA_AUDIT.md](docs/DATA_AUDIT.md) for the full inventory, including duplicate rows and NaN/Inf values. Do not commit raw dataset files, virtual environments, credentials, or machine-specific paths.
+**Paper:** Smitha Rajagopal, Poornima Panduranga Kundapur, Katiganere Siddaramappa Hareesha, “A Stacking Ensemble for Network Intrusion Detection Using Heterogeneous Datasets,” *Security and Communication Networks*, 2020, article 4586875. [DOI: 10.1155/2020/4586875](https://doi.org/10.1155/2020/4586875). Spec, settings and open questions: [docs/PAPER_METHOD.md](docs/PAPER_METHOD.md). User stories: [docs/USER_STORIES.md](docs/USER_STORIES.md).
+
+**Target changed on 2026-11-13.** The repo owner moved the target from Kurniabudi et al. 2020 (CIC-IDS2017, Table 9) to this paper. Each member's vote on the new paper goes in [issue #2](https://github.com/joromanii/HackEM-_-/issues/2), and the reason for the change in [issue #1](https://github.com/joromanii/HackEM-_-/issues/1). Votes are pending.
+
+Start with [open Issues](https://github.com/joromanii/HackEM-_-/issues), the [IDS_Capstone project board](https://github.com/users/joromanii/projects/1), the [report](docs/REPORT.md) and the [paper-method specification](docs/PAPER_METHOD.md).
+
+## Dataset
+
+**UNSW-NB15** official partition files `UNSW_NB15_training-set.csv` (175,341 records) and `UNSW_NB15_testing-set.csv` (82,332 records), from the [official UNSW-NB15 page](https://research.unsw.edu.au/projects/unsw-nb15-dataset). Every class count matches the paper's Table 1: `measured (results/unsw_audit/2026-11-15_audit/class_counts_vs_table1.csv)`. Download steps: [runbook](docs/wiki/Runbook.md) §3. Raw data is never committed. Do not commit raw dataset files, virtual environments, credentials, or machine-specific paths.
+
+**Earlier work (superseded):** a read-only audit of CIC-IDS2017 from the previous target is kept as a record in [docs/DATA_AUDIT.md](docs/DATA_AUDIT.md) and `results/inventory/`.
 
 ## Setup and run
 
-Tested on macOS (Apple silicon) with Homebrew only; no Linux or Windows steps yet. Pinned versions: [requirements.txt](requirements.txt) (direct) and [requirements-lock.txt](requirements-lock.txt) (full `pip freeze`).
+Full step-by-step instructions: [docs/wiki/Runbook.md](docs/wiki/Runbook.md). Short version, tested on macOS (Apple silicon) with Homebrew:
 
-1. Install Python 3.11 (we used 3.11.18 from Homebrew; other 3.11.x versions are untested):
+```bash
+brew install python@3.11
+python3.11 -m venv .venv
+.venv/bin/pip install -r requirements-lock.txt
+.venv/bin/python scripts/audit_unsw.py                 # check your UNSW-NB15 files match ours
+.venv/bin/python scripts/run_models.py --task stacking # headline result, about 2 minutes
+```
 
-   ```bash
-   brew install python@3.11
-   ```
+Put the UNSW-NB15 training and testing CSVs in `~/Downloads/UNSW-NB15/` first (runbook §3), or change `data_dir` in [configs/run.toml](configs/run.toml). Pinned versions: [requirements.txt](requirements.txt) (direct) and [requirements-lock.txt](requirements-lock.txt) (full `pip freeze`).
 
-2. From the repo root, create the project venv and install the pinned packages:
-
-   ```bash
-   python3.11 -m venv .venv
-   .venv/bin/pip install -r requirements-lock.txt
-   ```
-
-3. Put the CIC-IDS2017 MachineLearningCSV files in `~/Downloads/MachineLearningCVE/`, or change `data_dir` in [configs/run.toml](configs/run.toml). The raw files are never copied into the repo.
-
-4. Run the data audit (14.6 s and 16.8 s on our machine: measured, `run_meta.json` in each run folder). It writes a new folder `results/inventory/<today>_audit/` and refuses to overwrite one that exists:
-
-   ```bash
-   .venv/bin/python scripts/audit_inventory.py
-   ```
-
-5. Check your download matches ours: the `sha256` column of your `files.csv` should equal [results/inventory/2026-11-02_audit/files.csv](results/inventory/2026-11-02_audit/files.csv). The comparison with the old label counts needs `~/ids-capstone/results/dataset_label_counts.csv`, which only the repo owner has. Without it the audit skips `label_count_comparison.csv`, so your run folder won't match ours file for file.
-
-**Config:** [configs/run.toml](configs/run.toml) holds the one project seed (`42`, not yet used: the audit has no randomness) and the data and results paths. It is TOML rather than the YAML suggested in `PROMPTS.md`, because Python 3.11 reads TOML with no extra package.
-
-**Not pinned:** the macOS version, the Homebrew Python build, and CPU type. Each run records them in its `run_meta.json`. The Python 3.11 setup reproduced every CSV of the first audit (Python 3.9.6) byte for byte: measured ([`results/inventory/2026-11-04_audit/compare_to_2026-11-02_audit.csv`](results/inventory/2026-11-04_audit/compare_to_2026-11-02_audit.csv)). Both runs used the same pandas, numpy and scikit-learn versions, so this tests the Python change only.
+**Not pinned:** the macOS version, the Homebrew Python build and CPU type; each run records them in its `run_meta.json`. The Python 3.11 setup reproduced every CSV of the earlier (superseded) CIC-IDS2017 audit byte for byte: measured ([`results/inventory/2026-11-04_audit/compare_to_2026-11-02_audit.csv`](results/inventory/2026-11-04_audit/compare_to_2026-11-02_audit.csv)).
 
 ## Workflow
 
@@ -58,7 +60,7 @@ Five phase milestones are organized with dates intentionally unset until the cou
 
 ## Results and evidence
 
-The published target values are listed above as paper-reported values, not as results from this project. No implementation or reproduction result is available yet. Add reproduced values, their difference, exact source row, settings, and evidence links to [docs/REPORT.md](docs/REPORT.md). Separate verified explanations from hypotheses.
+Paper values are `paper-reported` (Table 4). Our values are `measured` from saved runs listed in the [report's evidence index](docs/REPORT.md#9-evidence-index). Explanations are separated into what was tested and what remains undetermined (report §7).
 
 ## Individual Contribution Summary Table
 

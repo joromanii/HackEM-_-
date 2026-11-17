@@ -15,7 +15,7 @@ Read BRIEF.md first, then docs/PAPER_METHOD.md for the paper's method.
 ## Never
 - Commit raw or processed data, or anything under data/.
 - Fill a "Reproduction" value without a saved, re-runnable run.
-- Tune settings toward the paper's numbers (99.86% / 0.999 / 0.003).
+- Tune settings toward the paper's numbers (Table 4: 0.94 / 0.96 / 0.93 / 0.95 / 5.2%).
 - Silently choose an interpretation of an unclear step in the paper.
 - Vote, claim issues, or commit as or for a teammate.
 

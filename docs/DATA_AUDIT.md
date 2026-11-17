@@ -1,11 +1,13 @@
-# Data audit: CIC-IDS2017 MachineLearningCSV (Issue #4)
+# Data audit: CIC-IDS2017 MachineLearningCSV (Issue #4) — superseded
+
+> **Superseded on 2026-11-13.** This audit belongs to the earlier target (Kurniabudi et al. 2020, CIC-IDS2017). The project now reproduces Rajagopal et al. 2020 on UNSW-NB15 (`docs/PAPER_METHOD.md`). Kept as a record; its numbers still match its results files.
 
 This audit reports what is in the raw files. It does not clean, drop or relabel anything. Choices about what to do with these findings belong in `docs/SPLIT_SPEC.md` (Issue #5).
 
 - **Run folder:** [`results/inventory/2026-11-02_audit/`](../results/inventory/2026-11-02_audit/)
 - **Script:** [`scripts/audit_inventory.py`](../scripts/audit_inventory.py), read-only on `~/Downloads/MachineLearningCVE/`
 - **Environment:** Python 3.9.6, pandas 2.2.3, numpy 2.0.2, scikit-learn 1.6.1 (recorded in [`run_meta.json`](../results/inventory/2026-11-02_audit/run_meta.json)). Runtime 14.6 s. No randomness.
-- **Re-run:** `.venv/bin/python scripts/audit_inventory.py --out-dir results/inventory/<new-folder>` (setup: README "Setup and run") (the script refuses to overwrite an existing folder).
+- **Re-run:** `.venv/bin/python scripts/audit_inventory.py --data-dir ~/Downloads/MachineLearningCVE --out-dir results/inventory/<new-folder>`. `--data-dir` is required now that `configs/run.toml` points at UNSW-NB15. The script refuses to overwrite an existing folder.
 
 All numbers below are `measured (results/inventory/2026-11-02_audit/...)` unless marked otherwise.
 

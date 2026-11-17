@@ -1,0 +1,3 @@
+split,label_0_normal,label_1_attack,attack_share,label_disagrees_with_attack_cat
+train,56000,119341,0.68062,0
+test,37000,45332,0.5506,0
