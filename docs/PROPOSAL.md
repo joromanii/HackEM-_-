@@ -92,7 +92,7 @@ How the paper reached its test result is not determined (`docs/REPORT.md` §7).
 | The paper's own numbers are inconsistent: positive class (N1), truncated metrics (N2), unexplained 5.2% false alarm rate (N3), Table 6 on a 51,535-row subset (N4, `derived`) | Comparison isn't exactly like for like | Report our metrics with standard definitions; each inconsistency logged in `docs/DEVIATIONS.md` | Documented |
 | RBF SVM may be slow on 175,341 rows | Schedule | Timed on samples first (`unverified`: scratch dry run, not saved) | Full run took 130 s; no subsampling needed |
 | Results differ from the paper | Could be read as a failed project | The goal is an honest comparison; every gap gets a tested reason or "not determined" | Gap analysis done |
-| Contribution evidence for each member not yet recorded | Checklist items 3, 6, 9, 11 and 15 need each member's own work | Issues assigned to each member with checkable tasks | Assigned 2026-11-17; votes pending |
+| Contribution evidence for each member not yet recorded | Checklist items 3, 6, 9, 11 and 15 need each member's own work | Issues assigned to each member with checkable tasks | Assigned 2026-11-17; all three members have voted (Issue #2) |
 | Presentation date unknown | Late deliverables aren't accepted | Get the date this week and plan backwards | Open |
 
 ## 9. Scope and fallback
@@ -111,7 +111,7 @@ Assignments were made on 2026-11-17 by the repo owner; members are to confirm or
 | elijahmart42 | #4, #5, #6, #12, #20 | Reproduce on own machine, lead team decisions, review baseline, test runbook, final review |
 | Aponce0003 | #2, #10, #11, #13, #21, #22 | Votes and roster, report lead, evidence and contribution table, board cleanup, presentation, offline demo |
 
-**Paper vote:** pending. As of 2026-11-17, Issue #2 has no member votes on the new paper, only the earlier votes for the first paper (checked on GitHub, 2026-11-17). Each member posts their own vote there.
+**Paper vote:** unanimous. All three members voted YES in [Issue #2](https://github.com/joromanii/HackEM-_-/issues/2) (Aponce0003 and joromanii on 2026-11-17, elijahmart42 on 2026-11-18) (checked on GitHub, 2026-11-19).
 
 ## 11. Readiness-checklist crosswalk
 

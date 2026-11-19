@@ -11,7 +11,7 @@ The team dropped the earlier target (Kurniabudi et al. 2020, CIC-IDS2017, Table 
 ## Current state (as of 2026-11-15)
 | Item | Status |
 |---|---|
-| New paper chosen | Owner's choice; team meeting Thursday 2026-11-12 (reported). **Team votes pending** (Issue #2). |
+| New paper chosen | Proposed by the repo owner; team meeting Thursday 2026-11-12 (reported). **Unanimous:** all three members voted YES in Issue #2 (2026-11-17/18). |
 | Paper spec | `docs/PAPER_METHOD.md` |
 | UNSW-NB15 data | Downloaded 2026-11-15 to `~/Downloads/UNSW-NB15/`; every class count matches Table 1: measured (`results/unsw_audit/2026-11-15_audit/`) |
 | Method choices | 19 **proposed** choices in `docs/DEVIATIONS.md`; **team approval pending** (Issue #5) |
