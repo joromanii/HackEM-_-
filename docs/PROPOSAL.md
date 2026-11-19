@@ -58,7 +58,7 @@ Every choice the paper doesn't state is logged in `docs/DEVIATIONS.md` (D1–D19
 
 ## 6. Timeline
 
-The presentation date is **to be confirmed**; the weeks below count from the paper switch on 2026-11-13.
+The presentation date is **December 1, 2026**; the weeks below count from the paper switch on 2026-11-13.
 
 | Week | Dates | Work | Status |
 |---|---|---|---|
@@ -93,7 +93,7 @@ How the paper reached its test result is not determined (`docs/REPORT.md` §7).
 | RBF SVM may be slow on 175,341 rows | Schedule | Timed on samples first (`unverified`: scratch dry run, not saved) | Full run took 130 s; no subsampling needed |
 | Results differ from the paper | Could be read as a failed project | The goal is an honest comparison; every gap gets a tested reason or "not determined" | Gap analysis done |
 | Contribution evidence for each member not yet recorded | Checklist items 3, 6, 9, 11 and 15 need each member's own work | Issues assigned to each member with checkable tasks | Assigned 2026-11-17; votes pending |
-| Presentation date unknown | Late deliverables aren't accepted | Get the date this week and plan backwards | Open |
+| Presentation date: December 1, 2026 | Late deliverables aren.t accepted | Plan backwards from the confirmed deadline | Scheduled |
 
 ## 9. Scope and fallback
 
@@ -111,7 +111,7 @@ Assignments were made on 2026-11-17 by the repo owner; members are to confirm or
 | elijahmart42 | #4, #5, #6, #12, #20 | Reproduce on own machine, lead team decisions, review baseline, test runbook, final review |
 | Aponce0003 | #2, #10, #11, #13, #21, #22 | Votes and roster, report lead, evidence and contribution table, board cleanup, presentation, offline demo |
 
-**Paper vote:** pending. As of 2026-11-17, Issue #2 has no member votes on the new paper, only the earlier votes for the first paper (checked on GitHub, 2026-11-17). Each member posts their own vote there.
+**Paper vote:** Aponce0003 — YES. As of 2026-11-17, Issue #2 has no member votes on the new paper, only the earlier votes for the first paper (checked on GitHub, 2026-11-17). Each member posts their own vote there.
 
 ## 11. Readiness-checklist crosswalk
 
