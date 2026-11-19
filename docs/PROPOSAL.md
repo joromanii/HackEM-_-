@@ -111,7 +111,7 @@ Assignments were made on 2026-11-17 by the repo owner; members are to confirm or
 | elijahmart42 | #4, #5, #6, #12, #20 | Reproduce on own machine, lead team decisions, review baseline, test runbook, final review |
 | Aponce0003 | #2, #10, #11, #13, #21, #22 | Votes and roster, report lead, evidence and contribution table, board cleanup, presentation, offline demo |
 
-**Paper vote:** Aponce0003 — YES. As of 2026-11-17, Issue #2 has no member votes on the new paper, only the earlier votes for the first paper (checked on GitHub, 2026-11-17). Each member posts their own vote there.
+**Paper vote:** YES from all three team members: joromanii, Aponce0003, and elijahmart42. All three explicitly voted YES on Rajagopal et al. (2020), targeting Table 4.
 
 ## 11. Readiness-checklist crosswalk
 
