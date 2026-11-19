@@ -1,0 +1,37 @@
+{
+  "script": "scripts/compare.py",
+  "script_sha256": "95e4df46386fac78e66a5a791ca895c3efc8b4060a30996a3442cfad3e948b88",
+  "inputs": {
+    "results/reproduce/2026-11-19_160941/stacking": "94c61d43f3e8f0d958f50cb5aa110e411374e138e73381bfb1a158287f814527",
+    "results/reproduce/2026-11-19_160941/baseline": "fbdd4c2c2d16cf7b4d7811160580d0df53405edcc83e0bfe462adfc28761a89a"
+  },
+  "paper_values": {
+    "table4": {
+      "accuracy": 0.94,
+      "precision": 0.96,
+      "recall": 0.93,
+      "f1": 0.95,
+      "auc": 0.99,
+      "far": 0.052
+    },
+    "table4_counts": {
+      "TP": 42535,
+      "TN": 35365,
+      "FN": 2797,
+      "FP": 1635
+    }
+  },
+  "python": "3.11.18",
+  "packages": {
+    "numpy": "2.0.2",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1"
+  },
+  "git": {
+    "commit": "cd8b504b715d8e4fd6362adac0eece9bcecfef98",
+    "branch": "m3/leakage-reproduce-figures",
+    "dirty_files": "M README.md\n M docs/PRESENTATION.md\n M docs/REPORT.md\n M docs/USER_STORIES.md\n M docs/wiki/Runbook.md\n?? results/checks/\n?? results/figures/\n?? results/reproduce/\n?? scripts/check_no_leakage.py\n?? scripts/make_figures.py\n?? scripts/reproduce.py"
+  },
+  "note": "Reads saved results only; no training. Variants are sensitivity checks, not used to pick settings."
+}

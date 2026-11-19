@@ -1,0 +1,6 @@
+check,rows
+"train exact duplicates (extra copies, all columns but id)",67601
+"test exact duplicates (extra copies, all columns but id)",26387
+test rows identical to some train row (all columns but id),4247
+train duplicates on the 11 features only,78679
+test rows whose 11 features appear in train,13470

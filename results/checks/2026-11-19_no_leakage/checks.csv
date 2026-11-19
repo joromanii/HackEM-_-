@@ -1,0 +1,11 @@
+task,check,value,pass
+baseline,fit calls recorded,4,True
+baseline,rows per fit call vs training rows the script reports,5000 vs 5000,True
+baseline,fitted rows not found in training file,0,True
+baseline,fitted rows that exist only in test file,0,True
+stacking,fit calls recorded,1,True
+stacking,rows per fit call vs training rows the script reports,5000 vs 5000,True
+stacking,fitted rows not found in training file,0,True
+stacking,fitted rows that exist only in test file,0,True
+control,deliberate fit on 1000 test rows is flagged (through the hook),742 of 1000 flagged; the rest duplicate a training row and are invisible,True
+cv_train,"cv_train.py source references only the training file (text check, not run)",loads train only,True

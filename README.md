@@ -39,9 +39,10 @@ Full step-by-step instructions: [docs/wiki/Runbook.md](docs/wiki/Runbook.md). Sh
 brew install python@3.11
 python3.11 -m venv .venv
 .venv/bin/pip install -r requirements-lock.txt
-.venv/bin/python scripts/audit_unsw.py                 # check your UNSW-NB15 files match ours
-.venv/bin/python scripts/run_models.py --task stacking # headline result, about 2 minutes
+.venv/bin/python scripts/reproduce.py   # raw data -> audit -> baseline -> stacking -> comparison, about 2.5 minutes
 ```
+
+`reproduce.py` writes everything to `results/reproduce/<date>_<time>/` and ends with **REPRODUCED** if your headline metrics are identical to ours. Figures for the report and slides: [`results/figures/2026-11-19_figures/figures.md`](results/figures/2026-11-19_figures/figures.md).
 
 Put the UNSW-NB15 training and testing CSVs in `~/Downloads/UNSW-NB15/` first (runbook §3), or change `data_dir` in [configs/run.toml](configs/run.toml). Pinned versions: [requirements.txt](requirements.txt) (direct) and [requirements-lock.txt](requirements-lock.txt) (full `pip freeze`).
 

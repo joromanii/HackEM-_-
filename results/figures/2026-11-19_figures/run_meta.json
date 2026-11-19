@@ -1,0 +1,56 @@
+{
+  "script": "scripts/make_figures.py",
+  "script_sha256": "c1bfd5a3a2f9e900e4d70f10ac661eb5f74d9426c819aaa0fed849331a6932d7",
+  "inputs": {
+    "results/comparison/2026-11-15_table4/baseline.csv": "3c5a8e5772bb850c986527c4574ac94793d5d428f53210d9845c7f64c37c438e",
+    "results/comparison/2026-11-15_table4/comparison.csv": "31b6b61e1a233e5e2ec40a2b90a377f1bd6fde962818cfe6b54653d7c0f9ff9a",
+    "results/comparison/2026-11-15_table4/counts.csv": "abc493f6ba43ea7200abc81975080626e499c170535f85600a77deda8c35b69b",
+    "results/comparison/2026-11-15_table4/seed_spread.csv": "f87e6f50e12451f748dd98dae4da2c8bc20d34379e000832344029b90c9af024",
+    "results/comparison/2026-11-15_table4/seeds.csv": "7ea222ee5a71e11b667e757eedf15bcc59c7fd7e98610d447828328ee44cc10e",
+    "results/comparison/2026-11-15_table4/variants.csv": "faaf76fe98cdbe61f0bd305073d75e5b0854c5210f384d1a24653ba7bdf3b824",
+    "results/runs/2026-11-15_error_analysis_stacking_seed42/fp_by_service.csv": "d26c84cea1810405ba343aa43054e97e5136e4eb0ee634c1665d81486d5993ac",
+    "results/runs/2026-11-15_error_analysis_stacking_seed42/fp_by_sttl.csv": "2e8f2b0900d24d087da16f470dd2c4c5fda3a21e090fe8038c3f54fc52b35ec6",
+    "results/runs/2026-11-15_error_analysis_stacking_seed42/normal_shift_service.csv": "478e43950ea0c69262cbe700b36c6562a1ebf6a5fed14c232186f7fe5202c0bb",
+    "results/runs/2026-11-15_error_analysis_stacking_seed42/normal_shift_sttl.csv": "dd135fd19855b8fbe9cd154bd689c9de2e760bcd2c77e1bdefc588246da09ac7",
+    "results/runs/2026-11-15_sttl_profile/sttl_by_split_label.csv": "390e72e4f637fe7d25baa63d1b1e3388ee74a45a184fa9f9f641bd7937e758d7",
+    "results/runs/2026-11-15_stacking_multiclass_seed42/confusion_stacking.csv": "8a599262ec173fe9b8ae00a838004412c01ca78d91c444ab420ed97c685c9827",
+    "results/runs/2026-11-15_stacking_multiclass_seed42/metrics.csv": "6796edd9ff39a4d727a7669f06814956041a554066ced80c637d4cc09ee907b9",
+    "results/runs/2026-11-15_stacking_multiclass_seed42/per_class_stacking.csv": "f462e8706275ee95b019ffcee4ef9d21d8690e2287ef74085d746c2f7e6930db"
+  },
+  "runtime_seconds": 0.3,
+  "python": "3.11.18",
+  "packages": {
+    "numpy": "2.0.2",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1",
+    "matplotlib": "3.9.4"
+  },
+  "git": {
+    "commit": "cd8b504b715d8e4fd6362adac0eece9bcecfef98",
+    "branch": "m3/leakage-reproduce-figures",
+    "dirty_files": "M README.md\n M docs/PRESENTATION.md\n M docs/REPORT.md\n M docs/USER_STORIES.md\n M docs/wiki/Runbook.md\n?? results/checks/\n?? results/figures/\n?? results/reproduce/\n?? scripts/check_no_leakage.py\n?? scripts/make_figures.py\n?? scripts/reproduce.py"
+  },
+  "paper_values": {
+    "table4": {
+      "accuracy": 0.94,
+      "precision": 0.96,
+      "recall": 0.93,
+      "f1": 0.95,
+      "auc": 0.99,
+      "far": 0.052
+    },
+    "table6_recall_pct": {
+      "Analysis": 11,
+      "Backdoor": 10.79,
+      "DoS": 25,
+      "Exploits": 85,
+      "Fuzzers": 60.97,
+      "Generic": 98.32,
+      "Normal": 91.82,
+      "Reconnaissance": 74.8,
+      "Shellcode": 58.22,
+      "Worms": 37.5
+    }
+  }
+}
