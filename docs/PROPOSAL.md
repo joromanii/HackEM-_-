@@ -62,8 +62,8 @@ The presentation date is **to be confirmed**; the weeks below count from the pap
 
 | Week | Dates | Work | Status |
 |---|---|---|---|
-| 1 | Nov 13–19 | Paper spec; data download and audit; baseline; stacking model; comparison and gap analysis; report and runbook drafts; issues assigned | Mostly done. Still open: votes, second-member check of paper numbers (M1-2), superseded-plan cleanup (M1-6), course's data questions (M2-4) |
-| 2 | Nov 20–26 | Team votes and decisions on D1–D19; a second member reproduces the results on their machine; wiki runbook tested; report sections rewritten by each member; data described the course's way | Not started |
+| 1 | Nov 13–19 | Paper spec; data download and audit; baseline; stacking model; comparison and gap analysis; report and runbook drafts; issues assigned | Mostly done. Still open: second-member check of paper numbers (M1-2), superseded-plan cleanup (M1-6), course's data questions (M2-4) |
+| 2 | Nov 20–26 | Team decisions on D1–D19; a second member reproduces the results on their machine; wiki runbook tested; report sections rewritten by each member; data described the course's way | Not started |
 | 3 | Nov 27–Dec 3 | Contribution table; board cleanup; slides; offline demo; timed dry run; final fresh-clone review | Not started |
 
 ## 7. Status so far

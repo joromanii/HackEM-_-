@@ -2,7 +2,7 @@
 
 This file turns the selected paper into a reproduction target we can check. It is a specification, not evidence that anything has been run.
 
-> **Target changed on 2026-11-13.** The team moved from Kurniabudi et al. 2020 (CIC-IDS2017, Table 9) to the paper below. The previous spec is preserved in git: `git show 33c47b5:docs/PAPER_METHOD.md`. The reason for the change and each member's vote belong in Issue #1 and Issue #2. **Unanimous: all three members voted YES in Issue #2 (Aponce0003 and joromanii on 2026-11-17, elijahmart42 on 2026-11-18).**
+> **Target changed on 2026-11-13.** The team moved from Kurniabudi et al. 2020 (CIC-IDS2017, Table 9) to the paper below. The previous spec is preserved in git: `git show 33c47b5:docs/PAPER_METHOD.md`. The reason for the change goes in Issue #1; the votes are in Issue #2. **Unanimous: all three members voted YES in Issue #2 (Aponce0003 and joromanii on 2026-11-17, elijahmart42 on 2026-11-18).**
 
 Number labels used here: `paper-reported` (with table/section), `derived` (arithmetic on paper numbers, shown), `measured (file)`, or `unverified`.
 
