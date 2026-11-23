@@ -48,7 +48,15 @@ It writes `results/unsw_audit/<today>_audit/`. Check:
 
 Majority class, then random forest, KNN and logistic regression alone. Results in `results/runs/<today>_baseline_binary_seed42/metrics.csv`.
 
-## 6. Headline result: the stacking ensemble (about 2 minutes)
+## 6. Headline result in one command (about 2.5 minutes)
+
+```bash
+.venv/bin/python scripts/reproduce.py
+```
+
+This runs the audit, baseline, stacking model and comparison into one new folder, `results/reproduce/<date>_<time>/`, and ends with **REPRODUCED** if the headline metrics are identical to the saved run (it also checks the baseline). Total runtime is saved in that folder's `run_meta.json` (147.6 s on our 10-CPU laptop). Open `summary.md` in that folder. Post the result in Issue #20.
+
+To run only the stacking model:
 
 ```bash
 .venv/bin/python scripts/run_models.py --task stacking
@@ -58,7 +66,7 @@ Results in `results/runs/<today>_stacking_binary_seed42/metrics.csv`. The `test_
 
 You may see many `RuntimeWarning: ... encountered in matmul` lines from logistic regression. They are a known false alarm from numpy 2.0 with macOS's Accelerate library; the fit converges and agrees with another solver (see `docs/DEVIATIONS.md`, E1).
 
-## 7. Gap analysis (optional, about 45 minutes)
+## 7. Gap analysis (optional, about 53 minutes of runtime: `derived` from each run's `run_meta.json`)
 
 ```bash
 .venv/bin/python scripts/cv_train.py
@@ -68,6 +76,8 @@ for v in log1p minmax_notransform hashing; do .venv/bin/python scripts/run_model
 .venv/bin/python scripts/run_models.py --task baseline --target multiclass
 .venv/bin/python scripts/error_analysis.py
 .venv/bin/python scripts/sttl_profile.py
+.venv/bin/python scripts/check_no_leakage.py   # checks no test row is used for fitting on a 5,000-row sample (about 7 seconds)
+.venv/bin/python scripts/make_figures.py       # report and slide figures from saved results
 ```
 
 ## 8. Comparison table

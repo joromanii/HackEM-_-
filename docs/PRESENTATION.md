@@ -21,7 +21,9 @@ Draft for the team to adapt. Each member takes sections and states the **one num
 | 15 | Limitations | UNSW-NB15 only; unstated settings are ours; paper's 0.94 (0.946 `derived` from its counts) not explained | — | `docs/REPORT.md` §7 | |
 | 16 | Takeaways | What we learned about reproducing IDS papers | — | — | |
 
-**Demo:** run `scripts/run_models.py --task stacking` live (about 2 minutes) or play the offline fallback (Issue #22).
+**Figures:** [`results/figures/2026-11-19_figures/`](../results/figures/2026-11-19_figures/figures.md): slide 9 → fig1, slide 10 → fig2, slide 11 → fig5, slide 13 → fig3 and fig4, slide 14 → fig6.
+
+**Demo:** run `scripts/reproduce.py` live (about 2.5 minutes; ends with REPRODUCED) or play the offline fallback (Issue #22).
 
 **Dry run log** (Issue #21):
 

@@ -58,13 +58,14 @@ Dr. Parra asks for user stories to be kept consistently. Our rule:
 
 | ID | User story | Acceptance criteria | Issue | Checklist | Status |
 |---|---|---|---|---|---|
-| M3-1 | As a **researcher**, I want preprocessing fitted on training data only, so that the test set can't leak into the model. | Scaling, encoding of `service` and any transform are fitted on the 175,341 training rows only. A check confirms the test rows aren't used. | #8 | 6, 8 | Done by code inspection (method-reviewer, 2026-11-15); no automated check yet |
+| M3-1 | As a **researcher**, I want preprocessing fitted on training data only, so that the test set can't leak into the model. | Scaling, encoding of `service` and any transform are fitted on the 175,341 training rows only. A check confirms the test rows aren't used. | #8 | 6, 8 | Partly automated: `scripts/check_no_leakage.py` passes on a 5,000-row sample for baseline and stacking (no test-only row reaches a fit; a deliberate test-row fit is flagged); `cv_train.py` text-checked only; test rows that duplicate training rows can't be detected (`results/checks/2026-11-19_no_leakage/checks.csv`, 2026-11-19) |
 | M3-2 | As a **researcher**, I want the 11 features selected by name, so that a column shift can't select the wrong feature. | The code selects the 11 features by name and stops if one is missing. Any change to the list is logged. | #8 | 6 | Done (pending review) |
 | M3-3 | As a **researcher**, I want the stacking ensemble built as the paper describes, so that our result tests the paper's method. | RF (100, gini), KNN (5, Minkowski) and LR (L2) feed an SVM (C=1.0, rbf) through cross-validated predictions (Algorithm 1). Every unstated setting comes from `DEVIATIONS.md`. | #8 | 6 | Done (pending review) |
 | M3-4 | As a **researcher**, I want the SVM's runtime checked on a sample first, so that a slow full run doesn't block the schedule. | Timing on a sample is saved. Any subsampling or setting change for speed is logged as a deviation before the full run. | #8 | 6 | Done: timed on 5,000 and 20,000-row samples in a scratch dry run (not saved); full run 130 s, no subsampling needed |
-| M3-5 | As a **reviewer**, I want one command that goes from raw data to the headline number, so that I can rerun it on my machine. | One command in the README and wiki produces the Table 4 comparison. A member who didn't write the code runs it and gets the same numbers. | #8, #12 | 6 | Runbook ready; second-member run pending (*Team*) |
+| M3-5 | As a **reviewer**, I want one command that goes from raw data to the headline number, so that I can rerun it on my machine. | One command in the README and wiki produces the Table 4 comparison. A member who didn't write the code runs it and gets the same numbers. | #8, #12 | 6 | One command ready: `scripts/reproduce.py` reproduced the headline exactly on the author's machine (`results/reproduce/2026-11-19_160941/`, 2026-11-19); second-member run pending (*Team*) |
 | M3-6 | As a **reviewer**, I want each method PR checked against the paper, so that mistakes are caught before results are reported. | Each PR includes the method-reviewer report and is approved by at least one member. | #8 | 6 | Method-reviewer report in PRs #19 and #23; both approved by Aponce0003 (2026-11-17) |
 | M3-7 | As a **reviewer**, I want the headline result re-run with the final code, so that we know the code in the repo is the code that produced it. | Re-run with the final code (before it was committed) gives identical metrics to the headline run, and records checksums of every script so they can be matched to the committed files (`results/runs/2026-11-15_stacking_binary_seed42_rerun_current_code/`). | #8, #12 | 6 | Done 2026-11-15 |
+| M3-8 | As a **reviewer**, I want one command that goes from raw data to the comparison and tells me whether I got the same result, so that I can check the project without reading the code. | `scripts/reproduce.py` runs the audit, baseline, stacking model and comparison into one timestamped folder and reports REPRODUCED only if the headline metrics equal the saved run. | #8, #20 | 6 | Done 2026-11-19: headline and baseline metrics identical to the saved runs, 147.6 s (`results/reproduce/2026-11-19_160941/run_meta.json`) |
 
 ## M4 — Evaluation and gap analysis
 
@@ -79,6 +80,7 @@ Dr. Parra asks for user stories to be kept consistently. Our rule:
 | M4-7 | As a **researcher**, I want 10-fold cross-validation on the training file, so that we can compare with the paper's Table 5 and tell a weak model from a data problem. | `scripts/cv_train.py`: 0.9619 ± 0.0011 vs the paper's 0.9285; noted as optimistic because of duplicate rows (`results/runs/2026-11-15_cv_train_stacking_seed42/`). | #9 | 8 | Done 2026-11-15 |
 | M4-8 | As a **researcher**, I want to try other reasonable preprocessing choices, so that we know whether the steps the paper left out could explain the gap. | Three variants (log1p, no transform with min-max, hashing for `service`) give 0.8640–0.8652; used as sensitivity checks only, not to pick settings (`configs/variants/`, `results/comparison/2026-11-15_table4/variants.csv`). | #9 | 8 | Done 2026-11-15 |
 | M4-9 | As the **instructor**, I want to see where the false alarms come from, so that the gap explanation rests on evidence. | 87.4% of false alarms are normal test records with `sttl` = 254, a value that is about 90% attack in training; reported as a concentration, not a tested cause (`results/runs/2026-11-15_error_analysis_stacking_seed42/`, `results/runs/2026-11-15_sttl_profile/`). | #9 | 8 | Done 2026-11-15 |
+| M4-10 | As the **instructor**, I want charts of the comparison and the gap analysis, so that the results are clear in the report and on the slides. | Six figures built only from saved results, each with a CSV of the exact numbers plotted and alt text; colours from a reference palette documented as colourblind-safe (validator not run here: Node isn't installed) (`scripts/make_figures.py`). | #9, #21 | 7, 8, 13 | Done 2026-11-19 (`results/figures/2026-11-19_figures/`) |
 
 ## M5 — Report, evidence, presentation and final review
 
@@ -106,13 +108,13 @@ Dr. Parra asks for user stories to be kept consistently. Our rule:
 | 3 Same counts on a clean machine | M1-9, M2-1, M2-2, M2-3, M2-5, M2-9, M5-6 |
 | 4 Data described the course's way | M2-2, M2-4, M5-1 |
 | 5 Baseline before the paper's method | M2-7, M4-3 |
-| 6 Method runs end to end, one command | M1-9, M2-5, M2-6, M2-8, M3-1 to M3-7, M5-6 |
-| 7 Paper / ours / difference table | M4-1, M4-2, M4-3, M5-1, M5-10 |
-| 8 Every gap has a reason | M2-6, M3-1, M4-2, M4-4 to M4-9, M5-1, M5-10 |
+| 6 Method runs end to end, one command | M1-9, M2-5, M2-6, M2-8, M3-1 to M3-8, M5-6 |
+| 7 Paper / ours / difference table | M4-1, M4-2, M4-3, M4-10, M5-1, M5-10 |
+| 8 Every gap has a reason | M2-6, M3-1, M4-2, M4-4 to M4-10, M5-1, M5-10 |
 | 9 Wiki runbook | M5-2, M5-6 |
 | 10 README front door | M1-6, M5-3 |
 | 11 Contribution table | M1-4, M1-10, M1-12, M1-13, M5-4 |
 | 12 Board clean | M1-6, M1-11, M1-13, M5-5 |
-| 13 Dry run within time | M5-7 |
+| 13 Dry run within time | M4-10, M5-7 |
 | 14 Offline demo fallback | M5-8 |
 | 15 Each member knows their part | M1-8, M1-12, M5-9 |

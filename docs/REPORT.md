@@ -1,6 +1,6 @@
 # IDS Capstone Report: reproducing a stacking ensemble on UNSW-NB15
 
-> **Draft, 2026-11-15.** All measured numbers come from saved, re-runnable runs under `results/`. Method choices marked *proposed* still need team approval (`docs/DEVIATIONS.md`, Issue #5); changing one is a config edit and a re-run. Sections are to be split among members and rewritten in their own words before submission.
+> **Draft, updated 2026-11-19.** All measured numbers come from saved, re-runnable runs under `results/`. Method choices marked *proposed* still need team approval (`docs/DEVIATIONS.md`, Issue #5); changing one is a config edit and a re-run. Sections are to be split among members and rewritten in their own words before submission.
 
 Number labels: `paper-reported` · `derived` (arithmetic on paper numbers) · `measured (results/...)` · `unverified`.
 
@@ -90,6 +90,8 @@ Full log with reasons: [docs/DEVIATIONS.md](DEVIATIONS.md). All are **proposed**
 
 ## 6. Results
 
+Figures for this section: [`results/figures/2026-11-19_figures/figures.md`](../results/figures/2026-11-19_figures/figures.md) (Table 4 metrics, confusion counts, seeds and variants, false alarms by `sttl`, the `sttl` shift, 10-class recall).
+
 ### Baseline first (readiness item 5)
 
 Same files, features and preprocessing (`measured (results/runs/2026-11-15_baseline_binary_seed42/metrics.csv)`):
@@ -165,12 +167,13 @@ Paper values `paper-reported`; ours `measured (results/runs/2026-11-15_stacking_
 
 ## 8. Reproduction instructions
 
-See the runbook: [docs/wiki/Runbook.md](wiki/Runbook.md) (to be copied into the GitHub wiki, Issue #20). Headline result in two commands after setup:
+See the runbook: [docs/wiki/Runbook.md](wiki/Runbook.md) (to be copied into the GitHub wiki, Issue #20). Headline result in one command after setup:
 
 ```bash
-.venv/bin/python scripts/audit_unsw.py
-.venv/bin/python scripts/run_models.py --task stacking
+.venv/bin/python scripts/reproduce.py
 ```
+
+It runs the audit, baseline, stacking model and comparison into a new folder and checks the headline metrics against the saved run. Run on 2026-11-19: headline and baseline metrics identical to the saved runs, total runtime 147.6 s (`measured (results/reproduce/2026-11-19_160941/run_meta.json)`).
 
 ## 9. Evidence index
 
@@ -185,6 +188,9 @@ See the runbook: [docs/wiki/Runbook.md](wiki/Runbook.md) (to be copied into the 
 | CV on training | [`results/runs/2026-11-15_cv_train_stacking_seed42/`](../results/runs/2026-11-15_cv_train_stacking_seed42/) | Comparison with paper Table 5 |
 | False-alarm analysis | [`results/runs/2026-11-15_error_analysis_stacking_seed42/`](../results/runs/2026-11-15_error_analysis_stacking_seed42/), [`results/runs/2026-11-15_sttl_profile/`](../results/runs/2026-11-15_sttl_profile/) | Where false alarms concentrate (not a tested cause) |
 | Comparison table | [`results/comparison/2026-11-15_table4/`](../results/comparison/2026-11-15_table4/) | Paper / ours / difference |
+| No-leakage check | [`results/checks/2026-11-19_no_leakage/`](../results/checks/2026-11-19_no_leakage/) | On a 5,000-row sample, no test-only row reaches a top-level fit in the baseline or stacking code path; a deliberate fit on test rows is flagged (742 of 1,000; the rest duplicate training rows and are invisible to the check); `cv_train.py` text-checked only |
+| One-command reproduction | [`results/reproduce/2026-11-19_160941/`](../results/reproduce/2026-11-19_160941/) | Raw data to comparison in one command; headline and baseline metrics identical to the saved runs |
+| Figures | [`results/figures/2026-11-19_figures/figures.md`](../results/figures/2026-11-19_figures/figures.md) | Six figures, each with its data as CSV and alt text |
 | Config and environment | `configs/run.toml`, `configs/variants/`, `requirements-lock.txt` | Settings and versions |
 | Decisions | `docs/DEVIATIONS.md`, Issue #5 | Every unstated choice |
 | Superseded: CIC-IDS2017 audit | [`results/inventory/2026-11-02_audit/`](../results/inventory/2026-11-02_audit/) | Record of the earlier target only |

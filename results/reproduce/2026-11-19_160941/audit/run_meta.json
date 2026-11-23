@@ -1,0 +1,103 @@
+{
+  "script": "scripts/audit_unsw.py",
+  "script_sha256": "49b245b060351c978f56a7b54afd1143d20f9c159727e9360f3567a2a1c58390",
+  "code_sha256": {
+    "audit_inventory.py": "2d7a46b8ef9ac7eda12536ea60d040c488400d8c20a73ad4c23aa42234f68671",
+    "audit_unsw.py": "49b245b060351c978f56a7b54afd1143d20f9c159727e9360f3567a2a1c58390",
+    "check_no_leakage.py": "f799e08a6c34d9f416344b0d1cce315675e9a7554205b2607db3d4c1453ece23",
+    "common.py": "d46047840af48a89bbbb39ed9761e95250fb00d6fe5d9b7820e34484faf05e39",
+    "compare.py": "95e4df46386fac78e66a5a791ca895c3efc8b4060a30996a3442cfad3e948b88",
+    "cv_train.py": "a0b4deaa92755694358d35d708616090d45b5d99bc51b013bb22c78c07968848",
+    "error_analysis.py": "c27daf6a3bc522d7c94276706109b0eb814150dc3f5899efa3542d0a678c7293",
+    "make_figures.py": "6cee964896dfd282ff52d075bc94e7b4821c5182b2f205e2df4775bbaba0c5e6",
+    "models.py": "6320bd4494e41b841c0fd8ac18311c0b816405810c5db0f9b140fab15a4ce41d",
+    "reproduce.py": "da6ddc6a562db0514699bf694046fcf80d9581275c3abe3dee217b19b6218825",
+    "run_models.py": "144e3b9f50a2cbf8b9b0f54b67c023697b06a26ecaef97b82761339469b9be40",
+    "sttl_profile.py": "2499311dfc94f1177e26fc68315ee07836dec9df70954af3a627dcb2a9590428"
+  },
+  "started": "2026-11-19T16:09:42-06:00",
+  "config_file": "configs/run.toml",
+  "config_sha256": "62795a13594dae61e518eb5ed11d904f2df41a3a224218d6a2010062d08d24fb",
+  "config": {
+    "seed": 42,
+    "paths": {
+      "data_dir": "~/Downloads/UNSW-NB15",
+      "train_file": "UNSW_NB15_training-set.csv",
+      "test_file": "UNSW_NB15_testing-set.csv",
+      "results_dir": "results"
+    },
+    "data": {
+      "label_col": "label",
+      "category_col": "attack_cat",
+      "id_col": "id"
+    },
+    "features": {
+      "names": [
+        "sbytes",
+        "sttl",
+        "sload",
+        "tcprtt",
+        "smean",
+        "ct_srv_src",
+        "ct_state_ttl",
+        "ct_src_dport_ltm",
+        "ct_dst_src_ltm",
+        "ct_srv_dst",
+        "service"
+      ],
+      "categorical": [
+        "service"
+      ]
+    },
+    "preprocess": {
+      "numeric_transform": "yeo-johnson",
+      "scaler": "standard",
+      "categorical_encoding": "onehot",
+      "hashing_n_features": 16
+    },
+    "models": {
+      "rf_n_estimators": 100,
+      "rf_criterion": "gini",
+      "knn_n_neighbors": 5,
+      "knn_metric": "minkowski",
+      "lr_penalty": "l2",
+      "lr_max_iter": 1000,
+      "svm_C": 1.0,
+      "svm_kernel": "rbf",
+      "svm_gamma": "scale"
+    },
+    "stacking": {
+      "cv_folds": 10,
+      "stack_method": "predict_proba",
+      "passthrough": false
+    }
+  },
+  "inputs": {
+    "UNSW_NB15_training-set.csv": {
+      "sha256": "bec7dd5ec88dc2a0ccc7a07879d338395ed7421750f675fd0339e07dfe0648fa",
+      "bytes": 32293018
+    },
+    "UNSW_NB15_testing-set.csv": {
+      "sha256": "734fe6642edf758f7c94d7d9149426b49d202fe8e7bf0bef47392489c3c0a559",
+      "bytes": 15380800
+    }
+  },
+  "python": "3.11.18",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "cpu_count": 10,
+  "packages": {
+    "numpy": "2.0.2",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1"
+  },
+  "git": {
+    "commit": "cd8b504b715d8e4fd6362adac0eece9bcecfef98",
+    "branch": "m3/leakage-reproduce-figures",
+    "dirty_files": "M README.md\n M docs/PRESENTATION.md\n M docs/REPORT.md\n M docs/USER_STORIES.md\n M docs/wiki/Runbook.md\n?? results/checks/\n?? results/figures/\n?? results/reproduce/\n?? scripts/check_no_leakage.py\n?? scripts/make_figures.py\n?? scripts/reproduce.py"
+  },
+  "runtime_seconds": 0.7,
+  "train_rows": 175341,
+  "test_rows": 82332,
+  "class_counts_match_table1": true
+}

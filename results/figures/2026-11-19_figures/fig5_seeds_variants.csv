@@ -1,0 +1,10 @@
+run,accuracy
+seed 42 (headline),0.864791
+seed 1,0.864682
+seed 2,0.865253
+seed 3,0.864803
+seed 4,0.865119
+seed 5,0.866237
+log1p,0.86405
+minmax_notransform,0.864014
+hashing,0.865192

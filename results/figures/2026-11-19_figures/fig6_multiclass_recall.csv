@@ -1,0 +1,11 @@
+class,paper_recall_pct,ours_recall_pct
+Generic,98.32,96.7039
+Normal,91.82,74.1892
+Exploits,85.0,86.1121
+Reconnaissance,74.8,78.8616
+Fuzzers,60.97,57.0934
+Shellcode,58.22,78.5714
+Worms,37.5,29.5455
+DoS,25.0,4.3776
+Analysis,11.0,0.8863
+Backdoor,10.79,3.7736
