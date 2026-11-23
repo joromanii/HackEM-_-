@@ -62,8 +62,8 @@ The presentation date is **December 1, 2026**; the weeks below count from the pa
 
 | Week | Dates | Work | Status |
 |---|---|---|---|
-| 1 | Nov 13–19 | Paper spec; data download and audit; baseline; stacking model; comparison and gap analysis; report and runbook drafts; issues assigned | Mostly done. Still open: votes, second-member check of paper numbers (M1-2), superseded-plan cleanup (M1-6), course's data questions (M2-4) |
-| 2 | Nov 20–26 | Team votes and decisions on D1–D19; a second member reproduces the results on their machine; wiki runbook tested; report sections rewritten by each member; data described the course's way | Not started |
+| 1 | Nov 13–19 | Paper spec; data download and audit; baseline; stacking model; comparison and gap analysis; report and runbook drafts; issues assigned | Mostly done. Still open: second-member check of paper numbers (M1-2), superseded-plan cleanup (M1-6), course's data questions (M2-4) |
+| 2 | Nov 20–26 | Team decisions on D1–D19; a second member reproduces the results on their machine; wiki runbook tested; report sections rewritten by each member; data described the course's way | Not started |
 | 3 | Nov 27–Dec 3 | Contribution table; board cleanup; slides; offline demo; timed dry run; final fresh-clone review | Not started |
 
 ## 7. Status so far
@@ -92,8 +92,8 @@ How the paper reached its test result is not determined (`docs/REPORT.md` §7).
 | The paper's own numbers are inconsistent: positive class (N1), truncated metrics (N2), unexplained 5.2% false alarm rate (N3), Table 6 on a 51,535-row subset (N4, `derived`) | Comparison isn't exactly like for like | Report our metrics with standard definitions; each inconsistency logged in `docs/DEVIATIONS.md` | Documented |
 | RBF SVM may be slow on 175,341 rows | Schedule | Timed on samples first (`unverified`: scratch dry run, not saved) | Full run took 130 s; no subsampling needed |
 | Results differ from the paper | Could be read as a failed project | The goal is an honest comparison; every gap gets a tested reason or "not determined" | Gap analysis done |
-| Contribution evidence for each member not yet recorded | Checklist items 3, 6, 9, 11 and 15 need each member's own work | Issues assigned to each member with checkable tasks | Assigned 2026-11-17; votes pending |
-| Presentation date: December 1, 2026 | Late deliverables aren.t accepted | Plan backwards from the confirmed deadline | Scheduled |
+| Contribution evidence for each member not yet recorded | Checklist items 3, 6, 9, 11 and 15 need each member's own work | Issues assigned to each member with checkable tasks | Assigned 2026-11-17; all three members have voted (Issue #2) |
+| Presentation date: December 1, 2026 | Late deliverables aren't accepted | Plan backwards from the confirmed deadline | Scheduled |
 
 ## 9. Scope and fallback
 
@@ -111,7 +111,7 @@ Assignments were made on 2026-11-17 by the repo owner; members are to confirm or
 | elijahmart42 | #4, #5, #6, #12, #20 | Reproduce on own machine, lead team decisions, review baseline, test runbook, final review |
 | Aponce0003 | #2, #10, #11, #13, #21, #22 | Votes and roster, report lead, evidence and contribution table, board cleanup, presentation, offline demo |
 
-**Paper vote:** YES from all three team members: joromanii, Aponce0003, and elijahmart42. All three explicitly voted YES on Rajagopal et al. (2020), targeting Table 4.
+**Paper vote:** unanimous. All three members voted YES in [Issue #2](https://github.com/joromanii/HackEM-_-/issues/2) (Aponce0003 and joromanii on 2026-11-17, elijahmart42 on 2026-11-18) (checked on GitHub, 2026-11-19).
 
 ## 11. Readiness-checklist crosswalk
 

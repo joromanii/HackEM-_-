@@ -21,7 +21,7 @@ Reproduce it: [runbook](docs/wiki/Runbook.md). Method choices not stated in the 
 
 **Paper:** Smitha Rajagopal, Poornima Panduranga Kundapur, Katiganere Siddaramappa Hareesha, “A Stacking Ensemble for Network Intrusion Detection Using Heterogeneous Datasets,” *Security and Communication Networks*, 2020, article 4586875. [DOI: 10.1155/2020/4586875](https://doi.org/10.1155/2020/4586875). Proposal: [docs/PROPOSAL.md](docs/PROPOSAL.md). Spec, settings and open questions: [docs/PAPER_METHOD.md](docs/PAPER_METHOD.md). User stories: [docs/USER_STORIES.md](docs/USER_STORIES.md).
 
-**Target changed on 2026-11-13.** The repo owner moved the target from Kurniabudi et al. 2020 (CIC-IDS2017, Table 9) to this paper. Each member's vote on the new paper goes in [issue #2](https://github.com/joromanii/HackEM-_-/issues/2), and the reason for the change in [issue #1](https://github.com/joromanii/HackEM-_-/issues/1). Votes are pending.
+**Target changed on 2026-11-13.** The repo owner moved the target from Kurniabudi et al. 2020 (CIC-IDS2017, Table 9) to this paper. Each member's vote on the new paper goes in [issue #2](https://github.com/joromanii/HackEM-_-/issues/2), and the reason for the change in [issue #1](https://github.com/joromanii/HackEM-_-/issues/1). **The vote is unanimous:** all three members voted YES (Aponce0003 and joromanii on 2026-11-17, elijahmart42 on 2026-11-18).
 
 Start with [open Issues](https://github.com/joromanii/HackEM-_-/issues), the [IDS_Capstone project board](https://github.com/users/joromanii/projects/1), the [report](docs/REPORT.md) and the [paper-method specification](docs/PAPER_METHOD.md).
 

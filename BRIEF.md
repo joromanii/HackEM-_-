@@ -6,12 +6,12 @@ Target: Rajagopal, Kundapur & Hareesha, "A Stacking Ensemble for Network Intrusi
 We implement the paper's preprocessing, 11 features and stacking model (random forest, KNN and logistic regression combined by an SVM) as closely as the paper allows, measure our own results with fixed settings, and explain any gap. Ambiguities become documented deviations, not silent choices. Full spec: `docs/PAPER_METHOD.md`.
 
 ## Target change (2026-11-13)
-The team dropped the earlier target (Kurniabudi et al. 2020, CIC-IDS2017, Table 9) for this paper. Earlier CIC-IDS2017 work stays in the repo as a record: `docs/DATA_AUDIT.md`, `scripts/audit_inventory.py`, `results/inventory/`. The old spec is in git (`git show 33c47b5:docs/PAPER_METHOD.md`). The reason and votes go in Issues #1 and #2.
+The team dropped the earlier target (Kurniabudi et al. 2020, CIC-IDS2017, Table 9) for this paper. Earlier CIC-IDS2017 work stays in the repo as a record: `docs/DATA_AUDIT.md`, `scripts/audit_inventory.py`, `results/inventory/`. The old spec is in git (`git show 33c47b5:docs/PAPER_METHOD.md`). Votes are recorded in Issue #2; the reason goes in Issue #1.
 
-## Current state (as of 2026-11-15)
+## Current state (as of 2026-11-19)
 | Item | Status |
 |---|---|
-| New paper chosen | Owner's choice; team meeting Thursday 2026-11-12 (reported). **Team votes pending** (Issue #2). |
+| New paper chosen | Proposed by the repo owner; team meeting Thursday 2026-11-12 (reported). **Unanimous:** all three members voted YES in Issue #2 (2026-11-17/18). |
 | Paper spec | `docs/PAPER_METHOD.md` |
 | UNSW-NB15 data | Downloaded 2026-11-15 to `~/Downloads/UNSW-NB15/`; every class count matches Table 1: measured (`results/unsw_audit/2026-11-15_audit/`) |
 | Method choices | 19 **proposed** choices in `docs/DEVIATIONS.md`; **team approval pending** (Issue #5) |
@@ -23,7 +23,7 @@ The team dropped the earlier target (Kurniabudi et al. 2020, CIC-IDS2017, Table 
 | Deadline | About 3 weeks from 2026-11-13 (`unverified`; exact presentation date needed) |
 
 ## Next steps
-1. Team votes (Issue #2) and approves or changes the proposed choices (Issue #5). Any change: edit `configs/run.toml`, re-run, re-run `scripts/compare.py`.
+1. Team approves or changes the proposed choices (Issue #5). Any change: edit `configs/run.toml`, re-run, re-run `scripts/compare.py`.
 2. A member who didn't write the code follows the runbook on their own machine (Issues #4, #20).
 3. Each member rewrites their report section and fills in `docs/MEETINGS.md` and the contribution table.
 4. Presentation dry run and offline demo (Issues #21, #22).
