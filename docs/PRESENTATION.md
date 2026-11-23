@@ -14,9 +14,9 @@
 | 4 | Baseline first | Always guessing "attack" scores 0.5506; random forest alone already scores 0.8675 | 0.8675 | `results/runs/2026-11-15_baseline_binary_seed42/` | 0:45 | A |
 | 5 | Headline result | Paper / ours / difference: 0.8648 vs 0.94 | 0.8648 | fig1 (`results/figures/2026-11-19_figures/fig1_table4_metrics.png`) | 1:15 | B |
 | 6 | Confusion counts | We catch more attacks but flag far more normal traffic | FP 10,322 vs 1,635 | fig2 | 0:45 | B |
-| 7 | Ruling things out | Not random (six seeds 0.8647–0.8662), not our preprocessing (three variants 0.864–0.865), not duplicates (0.8603). On training data we score 0.9619 vs the paper's 0.9285 | SD 0.0006 | fig5; `summary_vs_table5.csv` | 1:15 | B |
-| 8 | Where the false alarms are | 87.4% of false alarms are normal records with `sttl` = 254; that value is about 90% attacks in training, and its share of normal traffic doubles in testing. A concentration, not a tested cause | 87.4% | fig3 and fig4 | 1:15 | C |
-| 9 | It reproduces | One command, raw data to this table, identical numbers every time | 147.6 s | 30-second recorded clip of `scripts/reproduce.py` ending in REPRODUCED (#22) | 0:45 | C |
+| 7 | Ruling things out | Not random (six seeds 0.8647–0.8662), not the preprocessing choices we tried (three variants 0.864–0.865), not duplicate test rows (0.8603 without them). 10-fold CV on training: 0.9619 vs the paper's 0.9285 (ours optimistic: duplicate rows) | SD 0.0006 | fig5; `summary_vs_table5.csv` | 1:15 | B |
+| 8 | Where the false alarms are | 87.4% of false alarms are normal records with `sttl` = 254; that value is about 90% attacks in training (`derived`), and its share of normal traffic doubles in testing. A concentration, not a tested cause | 87.4% | fig3 and fig4 | 1:15 | C |
+| 9 | It reproduces | One command, raw data to this table, identical numbers on both re-runs so far | 147.6 s | 30-second clip of `scripts/reproduce.py` ending in REPRODUCED, to be recorded (#22) | 0:45 | C |
 | 10 | Limitations and takeaways | UNSW-NB15 only; unstated settings are our proposals; how the paper got 0.94 is not determined. What we learned about reproducing papers | — | `docs/REPORT.md` §7 | 0:45 | C |
 | | | | | | **9:00** | |
 
