@@ -1,6 +1,6 @@
 # Presentation outline (Issue #21)
 
-Draft for the team to adapt. Each member takes sections and states the **one number** they explain (readiness checklist item 15). Presenter names are filled in by the members themselves. Time limit: *to be confirmed*.
+Draft for the team to adapt. Each member takes sections and states the **one number** they explain (readiness checklist item 15). Presenter names are filled in by the members themselves. Time limit: **10 minutes**.
 
 | # | Slide | Content | Key number | Source | Presenter |
 |---|---|---|---|---|---|
