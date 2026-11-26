@@ -6,7 +6,7 @@ User stories for reproducing **Rajagopal et al. (2020), Table 4: a stacking ense
 
 **Roles:** **researcher** (a member building or running the reproduction) · **reviewer** (a member checking someone else's work) · **instructor** (Dr. Parra, grading against the readiness checklist) · **newcomer** (someone opening the repo or wiki for the first time) · **presenter** (a member presenting on presentation day).
 
-**Status** as of 2026-11-19: Done · In review · In progress · Not started · Blocked.
+**Status** as of 2026-11-23: Done · In review · In progress · Not started · Blocked.
 
 **Team** marks stories that need every member, or someone other than the author. Owners are recorded on the GitHub issue; this file only notes when assignments were made and by whom (M1-12).
 
@@ -92,9 +92,9 @@ Dr. Parra asks for user stories to be kept consistently. Our rule:
 | M5-4 | As the **team**, I want an accurate contribution table, so that each member is credited for real work. | Each row in the README's Individual Contribution Summary Table is backed by commits, issues, PRs or documents with that person's name. Points and percentages agreed by the team. | #11 | 11 | Not started (*Team*) |
 | M5-5 | As the **instructor**, I want a clean project board, so that I can see what was done, in progress or dropped. | Every card is closed, in progress with a reason, or dropped with a note. | #11, #13 | 12 | Not started |
 | M5-6 | As a **reviewer**, I want a final check from a fresh clone, so that we submit only what works. | Someone reruns the pipeline from a clean clone, checks each reported number against its file, checks links, and records what passed and what's unverified. | #12 | 3, 6, 9 | Not started (*Team*) |
-| M5-7 | As the **team**, I want a timed dry run of the presentation, so that we finish within the limit without cutting results. | At least one full run-through inside the time limit with the results section intact; the time is recorded. | #21 | 13 | Outline drafted in `docs/PRESENTATION.md`; dry run not started (*Team*) |
+| M5-7 | As the **team**, I want a timed dry run of the presentation, so that we finish within the limit without cutting results. | At least one full run-through inside the time limit with the results section intact; the time is recorded. | #21 | 13 | 10-minute plan proposed 2026-11-23 for the 1 December presentation (10 slides, 9:00 + 1:00 buffer, `docs/PRESENTATION.md`); team to adjust; dry run not started (*Team*) |
 | M5-8 | As a **presenter**, I want a demo fallback that works offline, so that a network or laptop problem doesn't stop the demo. | A recorded video or screenshots of the pipeline running play from the presentation machine with no network. | #22 | 14 | Not started |
-| M5-9 | As each **team member**, I want to know my section and the one number I explain, so that everyone presents confidently. | A list maps each member to a section and a number, confirmed by each member in the dry run. | #21 | 15 | Not started (*Team*) |
+| M5-9 | As each **team member**, I want to know my section and the one number I explain, so that everyone presents confidently. | A list maps each member to a section and a number, confirmed by each member in the dry run. | #21 | 15 | Three parts of about 3 minutes proposed (A: slides 1–4, B: 5–7, C: 8–10), each with key numbers; members choose their part (*Team*) |
 | M5-10 | As the **team**, we want every pull request checked by the method-reviewer before it's opened, so that wrong numbers or unlogged choices are caught early. | Each PR description includes the reviewer's verdict, its 9-check table and what was fixed. | #11, #12 | 2, 7, 8 | Done for PRs #15, #16, #17, #19, #23, #24, #25; PR #18 (docs only) was opened without one. Continues for every PR |
 
 ---
