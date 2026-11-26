@@ -6,7 +6,7 @@ User stories for reproducing **Rajagopal et al. (2020), Table 4: a stacking ense
 
 **Roles:** **researcher** (a member building or running the reproduction) · **reviewer** (a member checking someone else's work) · **instructor** (Dr. Parra, grading against the readiness checklist) · **newcomer** (someone opening the repo or wiki for the first time) · **presenter** (a member presenting on presentation day).
 
-**Status** as of 2026-11-19: Done · In review · In progress · Not started · Blocked.
+**Status** as of 2026-11-25: Done · In review · In progress · Not started · Blocked.
 
 **Team** marks stories that need every member, or someone other than the author. Owners are recorded on the GitHub issue; this file only notes when assignments were made and by whom (M1-12).
 
@@ -39,6 +39,7 @@ Dr. Parra asks for user stories to be kept consistently. Our rule:
 | M1-11 | As the **instructor**, I want the issues, milestones and pull requests to describe the current paper, so that the board shows one project. | 8 issues re-pointed to the stacking paper (#1, #3, #4, #5, #6, #8, #9, #13); 3 new issues for the runbook, presentation and offline demo (#20–#22); old PRs #17 and #18 closed with a note (branches kept); milestone descriptions M1–M5 rewritten; comments on #2 and #7. | #13 | 12 | Done 2026-11-13 |
 | M1-12 | As the **team**, we want every open issue to have an owner, so that work is visible and each member is credited. | All 16 open issues assigned on 2026-11-17 (before #7 closed the same day) using the split chosen by the repo owner: joromanii 5 issues (34 pts), elijahmart42 5 (19 pts), Aponce0003 6 (23 pts). The instructor's account is not assigned. Members can swap by reassigning and noting it on the issue. | #2, #11 | 11, 15 | Done 2026-11-17 (members to confirm) |
 | M1-13 | As the **instructor**, I want a user story for every piece of work, so that I can follow the project's progress consistently. | The "How we keep stories" rule above; this file updated in the same PR as each task, with dated statuses. | #11 | 11, 12 | Ongoing (rule adopted 2026-11-17) |
+| M1-14 | As the **team**, we want one live checklist of what's done and what's left, so that everyone can see the remaining work before 1 December. | A pinned GitHub issue lists every done item and every remaining task with its owner and issue; members tick boxes as they finish. | #11, #29 | 11, 12 | Done 2026-11-23: [Issue #29](https://github.com/joromanii/HackEM-_-/issues/29) pinned (23 done, 18 to do) |
 
 ## M2 — Data audit and reproducible baseline
 
@@ -113,8 +114,8 @@ Dr. Parra asks for user stories to be kept consistently. Our rule:
 | 8 Every gap has a reason | M2-6, M3-1, M4-2, M4-4 to M4-10, M5-1, M5-10 |
 | 9 Wiki runbook | M5-2, M5-6 |
 | 10 README front door | M1-6, M5-3 |
-| 11 Contribution table | M1-4, M1-10, M1-12, M1-13, M5-4 |
-| 12 Board clean | M1-6, M1-11, M1-13, M5-5 |
+| 11 Contribution table | M1-4, M1-10, M1-12, M1-13, M1-14, M5-4 |
+| 12 Board clean | M1-6, M1-11, M1-13, M1-14, M5-5 |
 | 13 Dry run within time | M4-10, M5-7 |
 | 14 Offline demo fallback | M5-8 |
 | 15 Each member knows their part | M1-8, M1-12, M5-9 |
